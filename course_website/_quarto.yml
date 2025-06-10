@@ -12,6 +12,32 @@ website:
     location: navbar
     type: textbox
 
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - text: "Home"
+        href: index.qmd
+      - section: "Background knowledge with a bit of hands-on"
+        contents:
+          - Day1Session1_nfcore.qmd
+          - Day1Session2_linux.qmd
+          - Day1Session3_pixi.qmd
+          - Day2Session1_containers.qmd
+      - section: "Hands-on training"
+        contents:
+          - Day2Session2_nextflow_handson.qmd
+          - Day2Session3_nextfow_own_choice.qmd
+          - Day3Session4_nfcore_main.qmd
+          - Day4Session1_results.qmd
+          - Day4Session2_use_containers.qmd
+          - Day4Session3_r_in_quarto.qmd
+      - section: "Data management"
+        contents: 
+          - Day3Session1_data_management.qmd
+          - Day3Session2_quarto.qmd
+          - Day3Session3_github.qmd
+
 format:
   html:
     theme:
