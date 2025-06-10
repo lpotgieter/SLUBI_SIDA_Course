@@ -2,4 +2,27 @@
 title: "About"
 ---
 
-About this site
+This course is a hosted by the Swedish Agricultural University's Bioinformatics Infrastructure (SLUBI) team. In this course we hope to give you information on how to use reproducible bioinformatics pipelines, report results in a streamlined manner, and implement the system in your own research groups.
+
+| Day  | Session  |
+|--------|--------|
+| Monday  | [introduction to nf-core](Day1Session1_nfcore.qmd)  |
+|   | [introduction to linux](Day1Session2_linux.qmd)  |
+|   | [introduction to environments](Day1Session3_pixi.qmd)  |
+| Tuesday  | [introduction to containers](Day2Session1_containers.qmd)  |
+| | [Setting up and running a Nextflow pipeline with us](Day2Session2_nextflow_handson.qmd)  |
+| | [Setting up and running a Nextflow by yourself](Day2Session3_nextfow_own_choice.qmd)  |
+| Wednesday  | [Data Management and Reproducible Research](Day3Session1_data_management.qmd)  |
+|   | [Introduction to Markdown and Quarto](Day3Session2_quarto.qmd)  |
+|   | [GitHub](Day3Session3_github.qmd)  |
+|   | [How do nextflow pipelines work?](Day3Session4_nfcore_main.qmd)  |
+| Thursday  | [Nextflow Results](Day4Session1_results.qmd)  |
+|   | [Using Containers outside of nextflow](Day4Session2_use_containers.qmd)  |
+|  | [Using R and other languages in Quarto](Day4Session3_r_in_quarto.qmd)  |
+| Friday  | What are your needs? How can you implement this in your own institutions?  |
+
+: Program {.striped .hover}
+
+Friday is an emptier day in case we run out of time for something, or if there is something that you would like to learn more about.
+
+Every day will end with a feedback session, and we hope that you will tell us what you like, what isn't working for you, and what you would like to see more of.
