@@ -1,0 +1,31 @@
+---
+title: "SLUBI SIDA Course"
+---
+
+We are pleased to have this course with you! Our main aim with this course is to share how we use bioinformatics tools in a reproducible and scalable way. We will showcase the use of environments, containers, and established pipelines so that you can run these analyses on any operating system, as well as on systems that are not high performance computing clusters. 
+
+The website will remain active after the course so that you have access to the material, and we encourage you to share these resources with your students and other researchers that might benefit from this!
+
+
+| Day  | Session  |
+|--------|--------|
+| Monday  | [Introduction to nf-core and Nextflow](Day1Session1_nfcore.qmd)  |
+|   | [Introduction to Linux](Day1Session2_linux.qmd)  |
+|   | [Introduction to Environments](Day1Session3_pixi.qmd)  |
+| Tuesday  | [Introduction to Containers](Day2Session1_containers.qmd)  |
+| | [Setting up and running a Nextflow Pipeline (with us)](Day2Session2_nextflow_handson.qmd)  |
+| | [Setting up and running a Nextflow Pipeline (by yourself)](Day2Session3_nextfow_own_choice.qmd)  |
+| Wednesday  | [Data Management and Reproducible Research](Day3Session1_data_management.qmd)  |
+|   | [Introduction to Markdown and Quarto](Day3Session2_quarto.qmd)  |
+|   | [GitHub](Day3Session3_github.qmd)  |
+|   | [How do Nextflow Pipelines Work?](Day3Session4_nfcore_main.qmd)  |
+| Thursday  | [Nextflow Results](Day4Session1_results.qmd)  |
+|   | [Using Containers Outside of Nextflow](Day4Session2_use_containers.qmd)  |
+|  | [Using R and Other Languages in Quarto](Day4Session3_r_in_quarto.qmd)  |
+| Friday  | What are your needs? How can you implement this in your own institutions?  |
+
+: Program {.striped .hover}
+
+Friday is an emptier day in case we run out of time for something, or if there is something that you would like to learn more about.
+
+Every day will end with a feedback session, and we hope that you will tell us what you like, what isn't working for you, and what you would like to see more of.
