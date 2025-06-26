@@ -312,18 +312,24 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/docker1.png" class="img-fluid figure-img"></p>
-<figcaption>Filesystem</figcaption>
+<figcaption>dockerhub landing page</figcaption>
 </figure>
 </div>
 <p>For these tutorials, we’ll search VCFtools, a commonly used software for VCF manipulation and querying. The results of the search give us several different containers with the same name.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/docker2.png" class="img-fluid figure-img"></p>
-<figcaption>Filesystem</figcaption>
+<figcaption>Registry search</figcaption>
 </figure>
 </div>
 <p>You can see who built the container, how many times it has been pulled, when it was updated (here updated means different versions of the container being uploaded), and how many people have starred it. It is usually a good rule of thumb to use the most popular containers from users that have uploaded a lot of containers. The <a href="https://hub.docker.com/u/biocontainers">biocontainers</a> and <a href="https://hub.docker.com/u/pegi3s">pegi3s</a> profiles have builds for a lot of tools, and they are built really well!</p>
-<p>If we click on the image from <a href="https://hub.docker.com/r/biocontainers/vcftools">biocontainers</a> we get to a typical dockerhub image landing page: <img src="figures/docker3.png" class="img-fluid" alt="Filesystem"></p>
+<p>If we click on the image from <a href="https://hub.docker.com/r/biocontainers/vcftools">biocontainers</a> we get to a typical dockerhub image landing page:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/docker3.png" class="img-fluid figure-img"></p>
+<figcaption>VCFtools page</figcaption>
+</figure>
+</div>
 <p>There is information on the frequency of the container being pulled, as well as a pull command. This command is for docker, so we need to modify it for Apptainer.</p>
 <pre><code>apptainer pull vcftools_0.1.16-1.sif docker://biocontainers/vcftools</code></pre>
 <p>This command has several parts to it: 1. <code>apptainer</code> calls on the Apptainer software to run 2. <code>pull</code> tells Apptainer which function to use. In this case, we want it to go fetch something from a repository 3. <code>vcftools_0.1.16-1.sif</code> is the name of the container on our local machine. We could call it <code>I_Love_Dogs</code> but that is not very informative at all. Your collaborator won’t know what it means, and you certainly won’t know what it means in 6 months from now! It is also good practice to put the version number in your image name in case you want to have several versions at the same time, and you need to tell them apart. 4. <code>docker://</code> is the registry you are pulling from. There are several different registreis, but we are only going to show 2 during this course. (You will see another one in the Seqera tutorial) 5. <code>biocontainers/vcftools</code> is the profile/repository and container you are pulling</p>
@@ -347,7 +353,7 @@ Tip
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/docker4.png" class="img-fluid figure-img"></p>
-<figcaption>Filesystem</figcaption>
+<figcaption>Container versions</figcaption>
 </figure>
 </div>
 <p>If you wanted to download another version of the container, you simply copy the command shown on the right side, and alter the syntax, for example</p>
@@ -359,28 +365,28 @@ Tip
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/seqera1.png" class="img-fluid figure-img"></p>
-<figcaption>Filesystem</figcaption>
+<figcaption>Seqera containers landing page</figcaption>
 </figure>
 </div>
 <p>When you pull an image from Seqera and want to run it with Apptainer, you need to remember to change the container setting from Docker to Singularity</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/seqera2.png" class="img-fluid figure-img"></p>
-<figcaption>Filesystem</figcaption>
+<figcaption>Selecting Singularity</figcaption>
 </figure>
 </div>
 <p>Since Seqera builds containers on-demand, sometimes you have to wait for the container to finish compiling. You can see that it is still building the container from the <code>fetching container</code> comment. Don’t try to pull it when it is still building!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/seqera3.png" class="img-fluid figure-img"></p>
-<figcaption>Filesystem</figcaption>
+<figcaption>Waiting to build</figcaption>
 </figure>
 </div>
 <p>When the container is built, you can copy the text and pull the container to your system</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/seqera4.png" class="img-fluid figure-img"></p>
-<figcaption>Filesystem</figcaption>
+<figcaption>Ready to download</figcaption>
 </figure>
 </div>
 <pre><code>apptainer pull vcftools_0.1.17.sif oras://community.wave.seqera.io/library/vcftools:0.1.17--b541aa8d9f9213f9</code></pre>
@@ -425,7 +431,7 @@ INFO:    Build complete: lolcow.sif</code></pre>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/lolcow1.png" class="img-fluid figure-img"></p>
-<figcaption>Filesystem</figcaption>
+<figcaption>Boring cow</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -455,7 +461,7 @@ From: ubuntu:20.04
 %runscript
     fortune | cowsay | lolcat    
 </code></pre>
-<p>If we use the same definition file as before, but substitute <code>date</code> for <code>fortune</code> in the runscript and build the container, we now get a philosophical cow with a dark sense of humour <img src="figures/lolcow2.png" class="img-fluid" alt="Filesystem"> <img src="figures/lolcow3.png" class="img-fluid" alt="Filesystem"></p>
+<p>If we use the same definition file as before, but substitute <code>date</code> for <code>fortune</code> in the runscript and build the container, we now get a philosophical cow with a dark sense of humour <img src="figures/lolcow2.png" class="img-fluid" alt="Fun cow"> <img src="figures/lolcow3.png" class="img-fluid" alt="Inspirational cow"></p>
 <p>To show the difference between the <code>run</code> and <code>exec</code> commands, we can use the same container with <code>fortune</code> in the runscript and run</p>
 <pre><code>apptainer run lolcow.sif date|cowsay</code></pre>
 <p>and</p>
