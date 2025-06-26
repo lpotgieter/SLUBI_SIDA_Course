@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An Introduction to Containers – SLUBI SIDA Course</title>
+<title>Containers – SLUBI SIDA Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ecd7484abd448711fd8810a5eeb38bee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f66a8a55071dec8ca8f62e620264949a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Day1Session1_nfcore.html">Background knowledge with a bit of hands-on</a></li><li class="breadcrumb-item"><a href="./Day2Session1_containers.html">An Introduction to Containers</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Day1Session1_nfcore.html">Background knowledge with a bit of hands-on</a></li><li class="breadcrumb-item"><a href="./Day2Session1_containers.html">Containers</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -163,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Day2Session1_containers.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">An Introduction to Containers</span></a>
+ <span class="menu-text">Containers</span></a>
   </div>
 </li>
       </ul>
@@ -249,15 +249,29 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#problems" id="toc-problems" class="nav-link active" data-scroll-target="#problems">Problems</a></li>
+  <li><a href="#containers" id="toc-containers" class="nav-link" data-scroll-target="#containers">Containers</a>
+  <ul class="collapse">
+  <li><a href="#what-are-containers" id="toc-what-are-containers" class="nav-link" data-scroll-target="#what-are-containers">What are containers?</a></li>
+  <li><a href="#running-containers" id="toc-running-containers" class="nav-link" data-scroll-target="#running-containers">Running Containers</a></li>
+  <li><a href="#downloading-containers" id="toc-downloading-containers" class="nav-link" data-scroll-target="#downloading-containers">Downloading Containers</a></li>
+  <li><a href="#running-containers-1" id="toc-running-containers-1" class="nav-link" data-scroll-target="#running-containers-1">Running Containers</a></li>
+  <li><a href="#building-containers" id="toc-building-containers" class="nav-link" data-scroll-target="#building-containers">Building Containers</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Day1Session1_nfcore.html">Background knowledge with a bit of hands-on</a></li><li class="breadcrumb-item"><a href="./Day2Session1_containers.html">An Introduction to Containers</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Day1Session1_nfcore.html">Background knowledge with a bit of hands-on</a></li><li class="breadcrumb-item"><a href="./Day2Session1_containers.html">Containers</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">An Introduction to Containers</h1>
+<h1 class="title">Containers</h1>
 </div>
 
 
@@ -274,8 +288,183 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="problems" class="level2">
+<h2 class="anchored" data-anchor-id="problems">Problems</h2>
+<p>There are several underlying problems within bioinformatics (and informatics in general). 1. It is not uncommon for people within the same team to use different operating systems (whether MacOS, Windows, or different flavours of Unix builds). Even if everyone is using a MacOS, there are still different versions that impact the way people are able to work with their machines. 2. Almost every piece of software has some sort of dependency it needs to run. Some programs might “just” need a bash shell or basic python, while others need a variety of compilers and additional libraries to function. Often, these dependencies require further dependencies to be installed. It is also not uncommon for dependencies for Program 1 to clash with the dependencies for Program 2, requiring the user to uninstall dependencies to be able to install other dependencies. 3. In bioinformatics, tools are very often not maintained after the student that wrote the software graduated, the PI moved to a different university, or the funding simply ran out. This leads to a lot of really good software not really being supported by newer operating systems, usually due to dependencies not being easily available or, as before, clashing with newer versions. This makes installing a tool one of the biggest hurdles to overcome in bioinformatics. 4. You often cannot install different versions of the same program on one computer due to conflicting names. This is particularly problematic when you want to rerun an analysis for a publication where you need to use the same software all the way through.</p>
+<p>All of these problems mean that bioinformatics becomes less reproducible as they cannot be moved easily betweem systems (either when you upgrade your computer or want to share your pipeline with a colleague). Most of these problems can be overcome with containers.</p>
+</section>
+<section id="containers" class="level2">
+<h2 class="anchored" data-anchor-id="containers">Containers</h2>
+<section id="what-are-containers" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-containers">What are containers?</h3>
+<p>Containers are stand-alone pieces of software that require a container management tool to run. Containers contain an operating system, all dependencies, and software in an isolates environment. Container management tools can be run on all operating systems, and since the container has the operating system within it, it will run the same in all environments. Containers are also immutable, so it is stable over time.</p>
+</section>
+<section id="running-containers" class="level3">
+<h3 class="anchored" data-anchor-id="running-containers">Running Containers</h3>
+<p>There are several programs that can be used to run containers. <a href="https://www.docker.com">Docker</a>, <a href="https://apptainer.org">Appptainer</a>, and <a href="https://podman.io">Podman</a> are the most commonly used platforms. They all have their pros and cons. If you are using a Windows machine that only you are using, then Docker is likely the least complex tool to install. On multi-user systems like a server, Apptainer is the best tool for the job. For this tutorial and the rest of the course, we will use Apptainer commands. There are small syntax changes between bash and powershell commands, but they are very similar.</p>
+</section>
+<section id="downloading-containers" class="level3">
+<h3 class="anchored" data-anchor-id="downloading-containers">Downloading Containers</h3>
+<p>There are several repositories for people to upload containers that they have built. <a href="https://hub.docker.com">dockerhub</a> and <a href="https://seqera.io/containers/">Seqera</a> are two commonly used platforms for downloading containers. You are able to run containers from dockerhub on Apptainer without any problems.</p>
+<section id="dockerhub-tutorial" class="level4">
+<h4 class="anchored" data-anchor-id="dockerhub-tutorial">dockerhub Tutorial</h4>
+<p>On the dockerhub landing page, you have a search bar, and some login options. You do not need to create an account to access the containers on dockerhub.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/docker1.png" class="img-fluid figure-img"></p>
+<figcaption>Filesystem</figcaption>
+</figure>
+</div>
+<p>For these tutorials, we’ll search VCFtools, a commonly used software for VCF manipulation and querying. The results of the search give us several different containers with the same name.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/docker2.png" class="img-fluid figure-img"></p>
+<figcaption>Filesystem</figcaption>
+</figure>
+</div>
+<p>You can see who built the container, how many times it has been pulled, when it was updated (here updated means different versions of the container being uploaded), and how many people have starred it. It is usually a good rule of thumb to use the most popular containers from users that have uploaded a lot of containers. The <a href="https://hub.docker.com/u/biocontainers">biocontainers</a> and <a href="https://hub.docker.com/u/pegi3s">pegi3s</a> profiles have builds for a lot of tools, and they are built really well!</p>
+<p>If we click on the image from <a href="https://hub.docker.com/r/biocontainers/vcftools">biocontainers</a> we get to a typical dockerhub image landing page: <img src="figures/docker3.png" class="img-fluid" alt="Filesystem"></p>
+<p>There is information on the frequency of the container being pulled, as well as a pull command. This command is for docker, so we need to modify it for Apptainer.</p>
+<pre><code>apptainer pull vcftools_0.1.16-1.sif docker://biocontainers/vcftools</code></pre>
+<p>This command has several parts to it: 1. <code>apptainer</code> calls on the Apptainer software to run 2. <code>pull</code> tells Apptainer which function to use. In this case, we want it to go fetch something from a repository 3. <code>vcftools_0.1.16-1.sif</code> is the name of the container on our local machine. We could call it <code>I_Love_Dogs</code> but that is not very informative at all. Your collaborator won’t know what it means, and you certainly won’t know what it means in 6 months from now! It is also good practice to put the version number in your image name in case you want to have several versions at the same time, and you need to tell them apart. 4. <code>docker://</code> is the registry you are pulling from. There are several different registreis, but we are only going to show 2 during this course. (You will see another one in the Seqera tutorial) 5. <code>biocontainers/vcftools</code> is the profile/repository and container you are pulling</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>File format extensions like .txt and .sif are really only important for us. However, it is good practice to append your files with appropriate extensions to ensure that you follow good data management practices</p>
+</div>
+</div>
+</div>
+<p>If you are interested in a different version than the current version, there are other versions under the <code>tags</code> tab:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/docker4.png" class="img-fluid figure-img"></p>
+<figcaption>Filesystem</figcaption>
+</figure>
+</div>
+<p>If you wanted to download another version of the container, you simply copy the command shown on the right side, and alter the syntax, for example</p>
+<pre><code>apptainer pull vcftools0.1.14.sif docker://biocontainers/vcftools:v0.1.14_cv2</code></pre>
+</section>
+<section id="seqera-tutorial" class="level4">
+<h4 class="anchored" data-anchor-id="seqera-tutorial">Seqera Tutorial</h4>
+<p>The Seqera landing page is a bit different from the dockerhub landing page, and it works a bit differently from dockerhub. dockerhub hosts container images that users have uploaded, while Seqera builds containers as you request them. They use <a href="https://bioconda.github.io">bioconda</a>, <a href="https://conda-forge.org">conda-forge</a>, and <a href="https://pypi.org">pypi</a> libraries to build their containers with <a href="https://github.com/seqeralabs/wave">Wave</a>. The advantage is that you can include several different softwares in your container image at once. The disadvantage is that you are limited to software hosted on the aforementioned repositories. Usually this isn’t a problem, but sometimes you want to use something that isn’t hosted there.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/seqera1.png" class="img-fluid figure-img"></p>
+<figcaption>Filesystem</figcaption>
+</figure>
+</div>
+<p>When you pull an image from Seqera and want to run it with Apptainer, you need to remember to change the container setting from Docker to Singularity</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/seqera2.png" class="img-fluid figure-img"></p>
+<figcaption>Filesystem</figcaption>
+</figure>
+</div>
+<p>Since Seqera builds containers on-demand, sometimes you have to wait for the container to finish compiling. You can see that it is still building the container from the <code>fetching container</code> comment. Don’t try to pull it when it is still building!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/seqera3.png" class="img-fluid figure-img"></p>
+<figcaption>Filesystem</figcaption>
+</figure>
+</div>
+<p>When the container is built, you can copy the text and pull the container to your system</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/seqera4.png" class="img-fluid figure-img"></p>
+<figcaption>Filesystem</figcaption>
+</figure>
+</div>
+<pre><code>apptainer pull vcftools_0.1.17.sif oras://community.wave.seqera.io/library/vcftools:0.1.17--b541aa8d9f9213f9</code></pre>
+<p>Here we use <code>oras://</code> instead of <code>docker://</code> as we are pulling from the <a href="https://oras.land">oras</a> registry. We are also pulling a different version from Seqera, so the name of the container is different.</p>
+</section>
+</section>
+<section id="running-containers-1" class="level3">
+<h3 class="anchored" data-anchor-id="running-containers-1">Running Containers</h3>
+<p>Once you have the container on your local machine, you want to be able to use it. Apptainer can be used to enter the container and run as if you had the exact same operating system as the person who built it, or it can run the software inside the container from outside of the container.</p>
+<p>There are 2 different ways to use a container: <code>run</code> and <code>exec</code>. The <code>apptainer run</code> command launches the container and first runs the <code>%runscript</code> for the container if one is defined, and then runs your command (we will cover <code>%runscript</code> in the <code>Building Containers</code> section). The <code>apptainer exec</code> command will not run the <code>%runscript</code> even if one is defined. It is a small, fiddly detail that might be applicable if you use other people’s containers. After calling Apptainer and the <code>run</code> or <code>exec</code> commands, you can use your software as you usually would</p>
+<pre><code>apptainer exec vcftools_0.1.17.sif vcftools --version</code></pre>
+<p>This command runs your <code>vcftools_0.1.17.sif</code> container, calls on the program <code>vcftools</code> that is within the container, and will show you the version. If you had installed VCFtools locally, you would have just used</p>
+<pre><code>vcftools --version</code></pre>
+</section>
+<section id="building-containers" class="level3">
+<h3 class="anchored" data-anchor-id="building-containers">Building Containers</h3>
+<p>If the software you would like to use is not packaged into a container by anyone else, you might want to build it yourself. For this, we are just going to show a very simple example. Building containers from scratch is a computationally intensive task. You build containers from a <code>definition</code> file with the extension <code>.def</code></p>
+<p>Here we are going to build a container with a cow telling us the date. Save this in a file called <code>lolcow.def</code></p>
+<pre><code>Bootstrap: docker
+From: ubuntu:20.04
+
+%post
+    apt-get -y update
+    apt-get -y install cowsay lolcat fortune
+
+%environment
+    export LC_ALL=C
+    export PATH=/usr/games:$PATH
+
+%runscript
+    date | cowsay | lolcat    
+</code></pre>
+<p>There are several components to this definition file. 1. You can set the operating system you want in the container, in this case Ubuntu 20.04 2. <code>%post</code> section is where you update the OS from its base state, install dependencies and so on 3. <code>%environment</code> is where you export paths and modify the environment 4. <code>%runscript</code> is the script that will run when you use <code>apptainer run container.sif</code>. If you don’t include a runscript, then nothing will happen when you try to run it without any commands. You could build this container without anything in the <code>%runscript</code> section, and use <code>apptainer run container.sif date | cowsay | lolcat</code> to get the same output.</p>
+<pre><code>apptainer build lolcow.sif lolcow.def</code></pre>
+<p>You’ll get a lot of output on the status of the build, ending of</p>
+<pre><code>INFO:    Adding environment to container
+INFO:    Adding runscript
+INFO:    Creating SIF file...
+INFO:    Build complete: lolcow.sif</code></pre>
+<p>We can now run our new container with</p>
+<pre><code>apptainer run lolcow.sif</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/lolcow1.png" class="img-fluid figure-img"></p>
+<figcaption>Filesystem</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Try removing the %runscript, build it again, and see what happens</p>
+</div>
+</div>
+<pre><code>Bootstrap: docker
+From: ubuntu:20.04
+
+%post
+    apt-get -y update
+    apt-get -y install cowsay lolcat fortune
+
+%environment
+    export LC_ALL=C
+    export PATH=/usr/games:$PATH
+
+%runscript
+    fortune | cowsay | lolcat    
+</code></pre>
+<p>If we use the same definition file as before, but substitute <code>date</code> for <code>fortune</code> in the runscript and build the container, we now get a philosophical cow with a dark sense of humour <img src="figures/lolcow2.png" class="img-fluid" alt="Filesystem"> <img src="figures/lolcow3.png" class="img-fluid" alt="Filesystem"></p>
+<p>To show the difference between the <code>run</code> and <code>exec</code> commands, we can use the same container with <code>fortune</code> in the runscript and run</p>
+<pre><code>apptainer run lolcow.sif date|cowsay</code></pre>
+<p>and</p>
+<pre><code>apptainer exec lolcow.sif date|cowsay</code></pre>
+<p>The <code>run</code> command gives us a philosophical cow while <code>exec</code> gives us our boring cow again</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
