@@ -23,16 +23,17 @@ There are several repositories for people to upload containers that they have bu
 #### dockerhub Tutorial
 On the dockerhub landing page, you have a search bar, and some login options. You do not need to create an account to access the containers on dockerhub.
 
-![Filesystem](figures/docker1.png)
+![dockerhub landing page](figures/docker1.png)
 
 For these tutorials, we'll search VCFtools, a commonly used software for VCF manipulation and querying. The results of the search give us several different containers with the same name.
 
-![Filesystem](figures/docker2.png)
+![Registry search](figures/docker2.png)
 
 You can see who built the container, how many times it has been pulled, when it was updated (here updated means different versions of the container being uploaded), and how many people have starred it. It is usually a good rule of thumb to use the most popular containers from users that have uploaded a lot of containers. The [biocontainers](https://hub.docker.com/u/biocontainers) and [pegi3s](https://hub.docker.com/u/pegi3s) profiles have builds for a lot of tools, and they are built really well! 
 
 If we click on the image from [biocontainers](https://hub.docker.com/r/biocontainers/vcftools) we get to a typical dockerhub image landing page:
-![Filesystem](figures/docker3.png)
+
+![VCFtools page](figures/docker3.png)
 
 There is information on the frequency of the container being pulled, as well as a pull command. This command is for docker, so we need to modify it for Apptainer.
 
@@ -53,7 +54,7 @@ File format extensions like .txt and .sif are really only important for us. Howe
 
 If you are interested in a different version than the current version, there are other versions under the `tags` tab:
 
-![Filesystem](figures/docker4.png)
+![Container versions](figures/docker4.png)
 
 If you wanted to download another version of the container, you simply copy the command shown on the right side, and alter the syntax, for example
 
@@ -64,19 +65,19 @@ apptainer pull vcftools0.1.14.sif docker://biocontainers/vcftools:v0.1.14_cv2
 #### Seqera Tutorial
 The Seqera landing page is a bit different from the dockerhub landing page, and it works a bit differently from dockerhub. dockerhub hosts container images that users have uploaded, while Seqera builds containers as you request them. They use [bioconda](https://bioconda.github.io), [conda-forge](https://conda-forge.org), and [pypi](https://pypi.org) libraries to build their containers with [Wave](https://github.com/seqeralabs/wave). The advantage is that you can include several different softwares in your container image at once. The disadvantage is that you are limited to software hosted on the aforementioned repositories. Usually this isn't a problem, but sometimes you want to use something that isn't hosted there.
 
-![Filesystem](figures/seqera1.png)
+![Seqera containers landing page](figures/seqera1.png)
 
 When you pull an image from Seqera and want to run it with Apptainer, you need to remember to change the container setting from Docker to Singularity
 
-![Filesystem](figures/seqera2.png)
+![Selecting Singularity](figures/seqera2.png)
 
 Since Seqera builds containers on-demand, sometimes you have to wait for the container to finish compiling. You can see that it is still building the container from the `fetching container` comment. Don't try to pull it when it is still building!
 
-![Filesystem](figures/seqera3.png)
+![Waiting to build](figures/seqera3.png)
 
 When the container is built, you can copy the text and pull the container to your system
 
-![Filesystem](figures/seqera4.png)
+![Ready to download](figures/seqera4.png)
 
 ```
 apptainer pull vcftools_0.1.17.sif oras://community.wave.seqera.io/library/vcftools:0.1.17--b541aa8d9f9213f9
@@ -147,7 +148,7 @@ We can now run our new container with
 apptainer run lolcow.sif
 ```
 
-![Filesystem](figures/lolcow1.png)
+![Boring cow](figures/lolcow1.png)
 
 ::: {.callout-note}
 Try removing the %runscript, build it again, and see what happens
@@ -173,8 +174,8 @@ From: ubuntu:20.04
 ```
 
 If we use the same definition file as before, but substitute `date` for `fortune` in the runscript and build the container, we now get a philosophical cow with a dark sense of humour
-![Filesystem](figures/lolcow2.png)
-![Filesystem](figures/lolcow3.png)
+![Fun cow](figures/lolcow2.png)
+![Inspirational cow](figures/lolcow3.png)
 
 To show the difference between the `run` and `exec` commands, we can use the same container with `fortune` in the runscript and run
 ```
