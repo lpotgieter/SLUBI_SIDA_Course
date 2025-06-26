@@ -45,6 +45,9 @@ format:
       - brand
     css: styles.css
     toc: true
+    code-copy: true
+    highlight-style: github
+    code-overflow: wrap
 
 execute:
   freeze: auto
