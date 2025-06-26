@@ -2,7 +2,9 @@
 title: "Containers"
 ---
 ## Problems
+
 There are several underlying problems within bioinformatics (and informatics in general). 
+
 1. It is not uncommon for people within the same team to use different operating systems (whether MacOS, Windows, or different flavours of Unix builds). Even if everyone is using a MacOS, there are still different versions that impact the way people are able to work with their machines.
 2. Almost every piece of software has some sort of dependency it needs to run. Some programs might "just" need a bash shell or basic python, while others need a variety of compilers and additional libraries to function. Often, these dependencies require further dependencies to be installed. It is also not uncommon for dependencies for Program 1 to  clash with the dependencies for Program 2, requiring the user to uninstall dependencies to be able to install other dependencies.
 3. In bioinformatics, tools are very often not maintained after the student that wrote the software graduated, the PI moved to a different university, or the funding simply ran out. This leads to a lot of really good software not really being supported by newer operating systems, usually due to dependencies not being easily available or, as before, clashing with newer versions. This makes installing a tool one of the biggest hurdles to overcome in bioinformatics.
@@ -11,16 +13,21 @@ There are several underlying problems within bioinformatics (and informatics in 
 All of these problems mean that bioinformatics becomes less reproducible as they cannot be moved easily betweem systems (either when you upgrade your computer or want to share your pipeline with a colleague). Most of these problems can be overcome with containers.
 
 ## Containers
+
 ### What are containers?
+
 Containers are stand-alone pieces of software that require a container management tool to run. Containers contain an operating system, all dependencies, and software in an isolates environment. Container management tools can be run on all operating systems, and since the container has the operating system within it, it will run the same in all environments. Containers are also immutable, so it is stable over time.
 
 ### Running Containers
+
 There are several programs that can be used to run containers. [Docker](https://www.docker.com), [Appptainer](https://apptainer.org), and [Podman](https://podman.io) are the most commonly used platforms. They all have their pros and cons. If you are using a Windows machine that only you are using, then Docker is likely the least complex tool to install. On multi-user systems like a server, Apptainer is the best tool for the job. For this tutorial and the rest of the course, we will use Apptainer commands. There are small syntax changes between bash and powershell commands, but they are very similar.
 
 ### Downloading Containers
+
 There are several repositories for people to upload containers that they have built. [dockerhub](https://hub.docker.com) and [Seqera](https://seqera.io/containers/) are two commonly used platforms for downloading containers. You are able to run containers from dockerhub on Apptainer without any problems.
 
 #### dockerhub Tutorial
+
 On the dockerhub landing page, you have a search bar, and some login options. You do not need to create an account to access the containers on dockerhub.
 
 ![dockerhub landing page](figures/docker1.png)
@@ -42,6 +49,7 @@ apptainer pull vcftools_0.1.16-1.sif docker://biocontainers/vcftools
 ```
 
 This command has several parts to it:
+
 1. `apptainer` calls on the Apptainer software to run
 2. `pull` tells Apptainer which function to use. In this case, we want it to go fetch something from a repository
 3. `vcftools_0.1.16-1.sif` is the name of the container on our local machine. We could call it `I_Love_Dogs` but that is not very informative at all. Your collaborator won't know what it means, and you certainly won't know what it means in 6 months from now! It is also good practice to put the version number in your image name in case you want to have several versions at the same time, and you need to tell them apart.
@@ -63,6 +71,7 @@ apptainer pull vcftools0.1.14.sif docker://biocontainers/vcftools:v0.1.14_cv2
 ````
 
 #### Seqera Tutorial
+
 The Seqera landing page is a bit different from the dockerhub landing page, and it works a bit differently from dockerhub. dockerhub hosts container images that users have uploaded, while Seqera builds containers as you request them. They use [bioconda](https://bioconda.github.io), [conda-forge](https://conda-forge.org), and [pypi](https://pypi.org) libraries to build their containers with [Wave](https://github.com/seqeralabs/wave). The advantage is that you can include several different softwares in your container image at once. The disadvantage is that you are limited to software hosted on the aforementioned repositories. Usually this isn't a problem, but sometimes you want to use something that isn't hosted there.
 
 ![Seqera containers landing page](figures/seqera1.png)
@@ -124,6 +133,7 @@ From: ubuntu:20.04
 ```
 
 There are several components to this definition file. 
+
 1. You can set the operating system you want in the container, in this case Ubuntu 20.04
 2. `%post` section is where you update the OS from its base state, install dependencies and so on
 3. `%environment` is where you export paths and modify the environment
@@ -152,9 +162,7 @@ apptainer run lolcow.sif
 
 ::: {.callout-note}
 Try removing the %runscript, build it again, and see what happens
-
 :::
-
 
 ```
 Bootstrap: docker
@@ -174,14 +182,19 @@ From: ubuntu:20.04
 ```
 
 If we use the same definition file as before, but substitute `date` for `fortune` in the runscript and build the container, we now get a philosophical cow with a dark sense of humour
+
 ![Fun cow](figures/lolcow2.png)
+
 ![Inspirational cow](figures/lolcow3.png)
 
 To show the difference between the `run` and `exec` commands, we can use the same container with `fortune` in the runscript and run
+
 ```
 apptainer run lolcow.sif date|cowsay
 ```
+
 and
+
 ```
 apptainer exec lolcow.sif date|cowsay
 ```
