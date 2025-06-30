@@ -109,6 +109,10 @@ This command runs your `vcftools_0.1.17.sif` container, calls on the program `vc
 vcftools --version
 ```
 
+::: {.callout-important}
+Please remember that VCFtools is just an example. If you want to run any other tool everything after `apptainer run` or `apptainer exec` has to substitute the name of your container and the run commands for that particular tool!
+:::
+
 ### Building Containers
 If the software you would like to use is not packaged into a container by anyone else, you might want to build it yourself. For this, we are just going to show a very simple example. Building containers from scratch is a computationally intensive task.
 You build containers from a `definition` file with the extension `.def` 
