@@ -87,7 +87,7 @@ Quarto is really good at implementing other programming languages within it. You
 You will have to install the `R` and `R syntax` extensions for this to work in VSCode
 :::
 
-```
+```{r}
 pacman::p_load(tidyverse, palmerpenguins)
 
 ggplot(
