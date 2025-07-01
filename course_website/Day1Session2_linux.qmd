@@ -31,24 +31,54 @@ There are two different ways for us to know where our file is within the operati
 It is often good practice to use absolute paths when you set pipelines up to run- this way, your programs know where to go looking for the files they're supposed to work on
 :::
 
+## Connecting to a Server
+
+There are many different ways you can connect to a server with SSH. At SLUBI, we have a strong preference towards [Visual Studio Code](https://code.visualstudio.com) or its open-source alternative, [VSCodium](https://vscodium.com). It provides a graphical user interface where you can create, edit, and view files, and see the file system.
+
+To be able to connect to a server, you need to install an extension called [Remote-SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) from the extensions market place.
+
+![Extensions from `View`](figures/markdown_view.png)
+
+![Extensions from the shortcut](figures/markdown_ext_short.png)
+
+Now we need to add a host to our list of known hosts. There are several ways of doing this, and all ways lead to establishing a connection. 
+
+1. Under the previously shown `View` option, navigate to the `Command Palette`. A dropdown menu at the top will start with a >. Type `Remote-SSH` and select `add new host`. Here we will input our credentials. This will populate a file in a hidden folder, `.ssh` in your local home directories called `known_hosts`. 
+2. You can also write all of these lines manually. This way, you can also specify SSH keys that may be needed to log on to particular servers. We won't be covering that in this course, though.
+
+After a host has been added, you can connect to it. You can do this either through the `Command Palette`, or through the small blue backwards and forwards arrows in the bottom left corner of VSCode. You will receive a list of known hosts that you can connect to. If you need to connect with a password, a password prompt will be shown. 
+
+Once connected, you can open the file manager on the left. 
+
+For privacy concerns, we will share the exact commands locally in the room.
+
+::: {.callout-important}
+Remeber to only open either your home directories or the folder for your projects with the file manager. If you try to open folders that are too large, you will cause VSCode to crash (and you may cause significant problems for your system administrator!)
+:::
+
 ## Navigating with the terminal
-For this part of the session, we will do some hands-on practice, so please open a terminal
+
+For this part of the session, we will do some hands-on practice! For this, we will open a terminal. You can do this through the `Command Palette` by using the `View: Toggle Terminal` function, or clicking the box with a dark bottom half and an empty top half in the top right corner of VSCode.
 
 ::: {.callout-note collapse="true"}
-## For Windows Users
-If you are using a Windows operating system, please install the free Home edition of [MobaXterm](https://mobaxterm.mobatek.net/download.html). 
+**For Windows Users**
+If you are using a Windows operating system, you can install the free Home edition of [MobaXterm](https://mobaxterm.mobatek.net/download.html) when your access to this server is removed if you want to continue practicing your Linux skills. 
 
 To use MobaXterm as a Linux shell, click on `New Session` and select a bash shell. There will probably be a prompt that you have to installl an extension. Click on the link it will provide, or copy the extension it needs and search it on Google (or your preferred search engine) and install it. Then try starting a new session again.
 :::
 
 To see where we currently are in the filesystem, we use the `present working directory` command. This will give us the absolute path of the directory that our terminal open in.
+
 ```
 pwd
 ```
+
 To see the files that are currently in the directory we use the `list` command.
+
 ```
 ls
 ```
+
 To make a directory, we use the `make directory` command, followed by the name we would like our directory to have. Here we will make a directory called `sida_training`.
 ```
 mkdir sida_training
@@ -63,28 +93,36 @@ The most important thing is to be consistent with what you use, and to use descr
 :::
 
 To enter the `sida_training` directory, we will use the `change directory` command.
+
 ```
 cd sida_training
 ```
+
 We can use the `pwd` command again just to make sure that we are indeed in the right folder.
 
 To go back to the folder we were in previously, we can use a shortcut rather than the absolute path.
+
 ```
 cd ..
 ```
+
 ::: {.callout-tip collapse="true"}
 There are no limits to the amount of directories you can go back (provided they are in your filesystem). If you wanted to go up 3 directories, you'd use
+
 ```
 cd ../../..
 ```
+
 :::
 
 To delete files and folder you use the `remove` command. If you want to remove a folder, you need a `recursive` flag.
+
 ```
 rm -r sida_training
 ```
 
 If we had a file to look at, we could use the `less` command. In the interface, we press `q` to quit.
+
 ```
 less filename
 ```
