@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f66a8a55071dec8ca8f62e620264949a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b5ec872262a54cd23b096da5a4a82f95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -256,6 +256,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#filesystem-architecture" id="toc-filesystem-architecture" class="nav-link" data-scroll-target="#filesystem-architecture">Filesystem Architecture</a></li>
+  <li><a href="#connecting-to-a-server" id="toc-connecting-to-a-server" class="nav-link" data-scroll-target="#connecting-to-a-server">Connecting to a Server</a></li>
   <li><a href="#navigating-with-the-terminal" id="toc-navigating-with-the-terminal" class="nav-link" data-scroll-target="#navigating-with-the-terminal">Navigating with the terminal</a></li>
   </ul>
 </nav>
@@ -345,22 +346,60 @@ Tip
 </div>
 </div>
 </section>
-<section id="navigating-with-the-terminal" class="level2">
-<h2 class="anchored" data-anchor-id="navigating-with-the-terminal">Navigating with the terminal</h2>
-<p>For this part of the session, we will do some hands-on practice, so please open a terminal</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<section id="connecting-to-a-server" class="level2">
+<h2 class="anchored" data-anchor-id="connecting-to-a-server">Connecting to a Server</h2>
+<p>There are many different ways you can connect to a server with SSH. At SLUBI, we have a strong preference towards <a href="https://code.visualstudio.com">Visual Studio Code</a> or its open-source alternative, <a href="https://vscodium.com">VSCodium</a>. It provides a graphical user interface where you can create, edit, and view files, and see the file system.</p>
+<p>To be able to connect to a server, you need to install an extension called <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote-SSH</a> from the extensions market place.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/markdown_view.png" class="img-fluid figure-img"></p>
+<figcaption>Extensions from <code>View</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/markdown_ext_short.png" class="img-fluid figure-img"></p>
+<figcaption>Extensions from the shortcut</figcaption>
+</figure>
+</div>
+<p>Now we need to add a host to our list of known hosts. There are several ways of doing this, and all ways lead to establishing a connection.</p>
+<ol type="1">
+<li>Under the previously shown <code>View</code> option, navigate to the <code>Command Palette</code>. A dropdown menu at the top will start with a &gt;. Type <code>Remote-SSH</code> and select <code>add new host</code>. Here we will input our credentials. This will populate a file in a hidden folder, <code>.ssh</code> in your local home directories called <code>known_hosts</code>.</li>
+<li>You can also write all of these lines manually. This way, you can also specify SSH keys that may be needed to log on to particular servers. We won’t be covering that in this course, though.</li>
+</ol>
+<p>After a host has been added, you can connect to it. You can do this either through the <code>Command Palette</code>, or through the small blue backwards and forwards arrows in the bottom left corner of VSCode. You will receive a list of known hosts that you can connect to. If you need to connect with a password, a password prompt will be shown.</p>
+<p>Once connected, you can open the file manager on the left.</p>
+<p>For privacy concerns, we will share the exact commands locally in the room.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-For Windows Users
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remeber to only open either your home directories or the folder for your projects with the file manager. If you try to open folders that are too large, you will cause VSCode to crash (and you may cause significant problems for your system administrator!)</p>
+</div>
+</div>
+</section>
+<section id="navigating-with-the-terminal" class="level2">
+<h2 class="anchored" data-anchor-id="navigating-with-the-terminal">Navigating with the terminal</h2>
+<p>For this part of the session, we will do some hands-on practice! For this, we will open a terminal. You can do this through the <code>Command Palette</code> by using the <code>View: Toggle Terminal</code> function, or clicking the box with a dark bottom half and an empty top half in the top right corner of VSCode.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If you are using a Windows operating system, please install the free Home edition of <a href="https://mobaxterm.mobatek.net/download.html">MobaXterm</a>.</p>
+<p><strong>For Windows Users</strong> If you are using a Windows operating system, you can install the free Home edition of <a href="https://mobaxterm.mobatek.net/download.html">MobaXterm</a> when your access to this server is removed if you want to continue practicing your Linux skills.</p>
 <p>To use MobaXterm as a Linux shell, click on <code>New Session</code> and select a bash shell. There will probably be a prompt that you have to installl an extension. Click on the link it will provide, or copy the extension it needs and search it on Google (or your preferred search engine) and install it. Then try starting a new session again.</p>
 </div>
 </div>
@@ -372,7 +411,7 @@ For Windows Users
 <p>To make a directory, we use the <code>make directory</code> command, followed by the name we would like our directory to have. Here we will make a directory called <code>sida_training</code>.</p>
 <pre><code>mkdir sida_training</code></pre>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -381,7 +420,7 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>When we give files and folders names, we don’t use spaces or special characters. It makes it really difficult to access files. We can use different ways to name our files and folders 1. youcanbechaoticandusenothing 2. YouCanUseCapitalLetters 3. you_can_use_underscores 4. you-can-use-dashes The most important thing is to be consistent with what you use, and to use descriptive names that are not too long. Future you will thank past you!</p>
 </div>
@@ -393,7 +432,7 @@ Tip
 <p>To go back to the folder we were in previously, we can use a shortcut rather than the absolute path.</p>
 <pre><code>cd ..</code></pre>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -402,7 +441,7 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>There are no limits to the amount of directories you can go back (provided they are in your filesystem). If you wanted to go up 3 directories, you’d use</p>
 <pre><code>cd ../../..</code></pre>

@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f66a8a55071dec8ca8f62e620264949a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b5ec872262a54cd23b096da5a4a82f95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -413,6 +413,19 @@ Tip
 <pre><code>apptainer exec vcftools_0.1.17.sif vcftools --version</code></pre>
 <p>This command runs your <code>vcftools_0.1.17.sif</code> container, calls on the program <code>vcftools</code> that is within the container, and will show you the version. If you had installed VCFtools locally, you would have just used</p>
 <pre><code>vcftools --version</code></pre>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please remember that VCFtools is just an example. If you want to run any other tool everything after <code>apptainer run</code> or <code>apptainer exec</code> has to substitute the name of your container and the run commands for that particular tool!</p>
+</div>
+</div>
 </section>
 <section id="building-containers" class="level3">
 <h3 class="anchored" data-anchor-id="building-containers">Building Containers</h3>
