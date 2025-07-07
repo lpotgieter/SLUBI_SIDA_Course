@@ -121,7 +121,7 @@ From the Command Palette, you can select whether you would like to view your doc
 
 With Quarto, you can render to HTML, Word, and PDF formats. To render individual files into PDF, add the information from [this](https://quarto.org/docs/output-formats/pdf-basics.html) Quarto guide into the header of your document.
 
-```         
+```{.bash}         
 ---
 title: "My document"
 format:
@@ -134,7 +134,7 @@ format:
 
 You will have to install a recent distribution of TeX for this via your terminal
 
-```         
+```{.bash}         
 quarto install tinytex
 ```
 

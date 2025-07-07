@@ -69,18 +69,19 @@ To use MobaXterm as a Linux shell, click on `New Session` and select a bash shel
 
 To see where we currently are in the filesystem, we use the `present working directory` command. This will give us the absolute path of the directory that our terminal open in.
 
-```
+```{.bash}
 pwd
 ```
 
 To see the files that are currently in the directory we use the `list` command.
 
-```
+```{.bash}
 ls
 ```
 
 To make a directory, we use the `make directory` command, followed by the name we would like our directory to have. Here we will make a directory called `sida_training`.
-```
+
+```{.bash}
 mkdir sida_training
 ```
 ::: {.callout-tip collapse="true"}
@@ -94,7 +95,7 @@ The most important thing is to be consistent with what you use, and to use descr
 
 To enter the `sida_training` directory, we will use the `change directory` command.
 
-```
+```{.bash}
 cd sida_training
 ```
 
@@ -102,14 +103,14 @@ We can use the `pwd` command again just to make sure that we are indeed in the r
 
 To go back to the folder we were in previously, we can use a shortcut rather than the absolute path.
 
-```
+```{.bash}
 cd ..
 ```
 
 ::: {.callout-tip collapse="true"}
 There are no limits to the amount of directories you can go back (provided they are in your filesystem). If you wanted to go up 3 directories, you'd use
 
-```
+```{.bash}
 cd ../../..
 ```
 
@@ -117,13 +118,13 @@ cd ../../..
 
 To delete files and folder you use the `remove` command. If you want to remove a folder, you need a `recursive` flag.
 
-```
+```{.bash}
 rm -r sida_training
 ```
 
 If we had a file to look at, we could use the `less` command. In the interface, we press `q` to quit.
 
-```
+```{.bash}
 less filename
 ```
 
