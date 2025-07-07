@@ -1,3 +1,29 @@
 ---
 title: "Using R in Quarto"
 ---
+
+## Introduction
+
+As you've seen, Quarto is a really neat tool to integrate different programming languages, aggregate analyses, and write reports. One of the most commonly used languages in bioinformatics is R, and we wanted to show you some neat tips and tricks that we use often to make things a bit easier. Of course, please have a look at the [R for Data Science](https://r4ds.hadley.nz) book for more practical tips. 
+
+What we are showing you here works just as well with R Markdown, so if you are already using that, or would prefer to work in the R GUI, please feel free to do so.
+
+## Code in R
+
+In R, you have the option of working in the `console`, in an `R script` or in an `R Markdown` (among many options). Within the console, you execute code bit by bit. Within an R script you can execute code line-by-line, in sections, or as a whole. In R Markdown, you create a `chunk` that you can also execute line-by-line or as a whole block. In Quarto, you will use chunks as well.
+
+A chunk is a bit of code surrounded by backticks. A single backtick `highlights things` like this. A chunk is started with 3 backticks, filled with code, and closed with 3 backticks. You also indicate the language you will code in with curly brackets and the language you want to use.
+
+::: {.callout-tip}
+If you add a fullstop in front of the language, your code is shown but it is not executed
+{r} would run an R chunk, but {.r} would not
+:::
+
+### Suppressing warnings
+
+
+
+## Useful Packages we Love!
+
+here 
+pacman

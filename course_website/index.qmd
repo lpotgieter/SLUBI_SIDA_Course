@@ -4,6 +4,8 @@ title: "SLUBI SIDA Course"
 
 We are pleased to have this course with you! Our main aim with this course is to share how we use bioinformatics tools in a reproducible and scalable way. We will showcase the use of environments, containers, and established pipelines so that you can run these analyses on any operating system, as well as on systems that are not high performance computing clusters. 
 
+Our approach to this course is going to be more practical and outcome based than theory based. We would like to give you the practical experience and skills to implement these kinds of analyses at your home universities. Our timeplan is also fairly flexible so that we can spend time with you on things that are useful and important for you to take hard skills with you. We can always go into more detail of something if you would like to know more about something. 
+
 The website will remain active after the course so that you have access to the material, and we encourage you to share these resources with your students and other researchers that might benefit from this!
 
 
