@@ -14,6 +14,7 @@ In R, you have the option of working in the `console`, in an `R script` or in an
 
 A chunk is a bit of code surrounded by backticks. A single backtick `highlights things` like this. A chunk is started with 3 backticks, filled with code, and closed with 3 backticks. You also indicate the language you will code in with curly brackets and the language you want to use.
 
+
 ::: {.callout-tip}
 If you add a fullstop in front of the language, your code is shown but it is not executed
 {r} would run an R chunk, but {.r} would not
@@ -21,9 +22,59 @@ If you add a fullstop in front of the language, your code is shown but it is not
 
 ### Suppressing warnings
 
+R produces a lot of warnings! Sometimes these warning are useful, but most of the time, they aren't useful for us. If we look back at yesterday's example of running R in Quarto:
+
+``` {r}
+
+pacman::p_load(tidyverse, palmerpenguins)
+
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g)
+) +
+  geom_point(mapping = aes(color = species, shape = species)) +
+  geom_smooth(method = "lm")
+```
+
+There are 2 warnings about removing 2 rows. There are also some warnings about the libraries. 
+
+To remove these for a whole document, you can add this to the `title` section of your page to apply only to the page it is on (the title would be your title, this title is just this page's title):
+
+```{.bash}
+title: "Using R in Quarto"
+warning: false
+---
+```
+
+You can also silence warnings for particular blocks (because sometimes you might care about the warnings!) In that case, you would add this in the first line of your chunk:
+
+```{.bash}
+#| warning: false
+```
+
+``` {r}
+#| warning: false
+
+pacman::p_load(tidyverse, palmerpenguins)
+
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g)
+) +
+  geom_point(mapping = aes(color = species, shape = species)) +
+  geom_smooth(method = "lm")
+```
 
 
-## Useful Packages we Love!
+## Useful Packages We Love!
 
-here 
-pacman
+There are plenty of really cool packages out there, but the 2 that stand out to us to help with project management and organisation, and keep your environment easy to use are `pacman` and `here`
+
+### pacman
+
+[pacman](https://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html) is a **pac**kage **man**ager that checks whether you have a library installed before loading it with the `p_load` function that you can see in the chunks above. If you don't have the package installed, it checks several repositories, installs it, and loads it. If you have it installed, it simply loads it. You can install particular versions with it, install GitHub packages, unload particular packages, as well as temporarily installing packages. This has made life with R a lot easier, especially if you are supporting users/students across multiple versions of R!
+
+### here
+
+[here](https://here.r-lib.org) is a smoother way of setting working directories in R. It sets the working directory relative to a file that is pointed to with the `here::i_am("file")` command. This is incredibly useful when you are sharing projects and scripts between different people. As long as you are sharing the whole folder and don't change the architecture (like renaming files and folders), the script will work the same on each system- no more manually changing the `setwd()` command!
+
