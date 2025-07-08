@@ -146,6 +146,12 @@ Since we are running this through Pixi to show you the versatility of environmen
 /your_home_directory/.pixi/bin/pixi run nextflow run nf-core/rnaseq -r 3.18.0 -params-file /your_path/nf-params.json
 ```
 
+And then submit it to slurm with 
+
+```{.bash}
+sbatch name_submit_rnaseq.sh
+```
+
 ::: {.callout-note}
 
 `slurm` is a job management tool installed on many servers to distribute resources evenly among users. If you are running this on your own machine later, you can just run it through `pixi run` as before
