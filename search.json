@@ -225,7 +225,7 @@
     "href": "Day1Session3_pixi.html",
     "title": "Introduction to Pixi",
     "section": "",
-    "text": "Different operating systems bring different challenges to bioinformatics. Windows, for instance, doesn’t really support most bioinformatics tools. One way to solve this through the use of environments. There are, of course, other ways, e.g. running virtual machines. In our experience, environments are a bit easier to manage and are more portable across different systems.",
+    "text": "Different operating systems bring different challenges to bioinformatics. Windows, for instance, doesn’t really support most bioinformatics tools. One way to solve this through the use of environments. There are, of course, other ways, e.g. running virtual machines. In our experience, environments are a bit easier to manage and are more portable across different systems. There are many different kinds of environments, and for this course, we are going to use Pixi.\n\n\n\nPixi landing page\n\n\nAs you can see, you can run Pixi on all major operating systems, and you can include various platforms in your Pixi environment.\n\n\nInstalling Pixi is really easy and described throughouly here with separate installation guides for Windows and Mac/Linux.\n\n\n\n\n\n\nTip\n\n\n\n\n\nTo source your shell, you need to source the startup files, in Linux it’s the ~/.bashrc file, in Mac it’s the ~/.zshrc file.",
     "crumbs": [
       "Home",
       "Background knowledge with a bit of hands-on",
@@ -237,7 +237,43 @@
     "href": "Day1Session3_pixi.html#introduction",
     "title": "Introduction to Pixi",
     "section": "",
-    "text": "Different operating systems bring different challenges to bioinformatics. Windows, for instance, doesn’t really support most bioinformatics tools. One way to solve this through the use of environments. There are, of course, other ways, e.g. running virtual machines. In our experience, environments are a bit easier to manage and are more portable across different systems.",
+    "text": "Different operating systems bring different challenges to bioinformatics. Windows, for instance, doesn’t really support most bioinformatics tools. One way to solve this through the use of environments. There are, of course, other ways, e.g. running virtual machines. In our experience, environments are a bit easier to manage and are more portable across different systems. There are many different kinds of environments, and for this course, we are going to use Pixi.\n\n\n\nPixi landing page\n\n\nAs you can see, you can run Pixi on all major operating systems, and you can include various platforms in your Pixi environment.\n\n\nInstalling Pixi is really easy and described throughouly here with separate installation guides for Windows and Mac/Linux.\n\n\n\n\n\n\nTip\n\n\n\n\n\nTo source your shell, you need to source the startup files, in Linux it’s the ~/.bashrc file, in Mac it’s the ~/.zshrc file.",
+    "crumbs": [
+      "Home",
+      "Background knowledge with a bit of hands-on",
+      "Introduction to Pixi"
+    ]
+  },
+  {
+    "objectID": "Day1Session3_pixi.html#setting-up-an-environment",
+    "href": "Day1Session3_pixi.html#setting-up-an-environment",
+    "title": "Introduction to Pixi",
+    "section": "Setting Up An Environment",
+    "text": "Setting Up An Environment\nYou should create separate environments for each project you run, just to keep things tidy. To create an environment, you have to specify a name for your environment. You can include different platforms/operating systems in your environment, as well as different channels.\nHere, we will create a project called name_sida_training (please use your own name to avoid). We are adding the conda-forge and bioconda channels with the -c flag.\npixi init name_sida_training -c conda-forge -c bioconda\n\n\n\n\n\n\nNote\n\n\n\nIf you want to add different platforms, you add them with the -p linux-64 flag. In this example, you are adding Linux64. See the Pixi docs for the full list of supported platforms.\nIf you are adding a platform that doesn’t natively run on your OS (e.g. adding Linux when running on Windows) be sure to add the OS you are running your system on as well!\n\n\nWhen you change directories into the folder pixi created you will see two files: pixi.lock and pixi.toml.\n\n\n\n\n\n\nTip\n\n\n\n\n\nHere is the code for changing directories, listing files, and viewing the contents of a file:\ncd name_sida_training\nls\nless pixi.toml\nTo exit the less view, press q for quit.\n\n\n\n\npixi.toml\nThe .toml file give your information about your project. Let’s have a look at one I made one my Mac before adding any dependencies to my environment. How is it different from the one we’ve made on HPC2N?\n[workspace]\nchannels = [\"conda-forge\", \"bioconda\"]\nname = \"sida_quarto\"\nplatforms = [\"osx-arm64\"]\nversion = \"0.1.0\"\n\n[tasks]\n\n[dependencies]\n \n\n\npixi.lock\nThe .lock file give you information on the channels you have decided to add, as well as the information on where the packages were downloaded from, license information, md5 information, and more.\n\n\n\n\n\n\nImportant\n\n\n\nDo not delete the .toml or .lock files, or you will break your environment!",
+    "crumbs": [
+      "Home",
+      "Background knowledge with a bit of hands-on",
+      "Introduction to Pixi"
+    ]
+  },
+  {
+    "objectID": "Day1Session3_pixi.html#adding-dependencies",
+    "href": "Day1Session3_pixi.html#adding-dependencies",
+    "title": "Introduction to Pixi",
+    "section": "Adding Dependencies",
+    "text": "Adding Dependencies\nAdding dependencies is like installing a program. Instead of installing it globally, it only gets installed in the environment.\nTo do this, we use the pixi add function. Let’s try adding Quarto to our environments (we will use Quarto extensively in this course!)\n\n\n\n\n\n\nImportant\n\n\n\nYou must be in the folder of the project to add software!\n\n\npixi add quarto\n\n\n\n\n\n\nTip\n\n\n\n\n\nIf you are unsure of how a function works, you can always query it, usually with the --help or -h flags. Here’s how it would look for the pixi add function\npixi add --help\nA general rule of thumb is that a single hyphen - is followed by a single letter flag, while double hyphens -- are usually followed by multi-letter flags\n\n\n\nHere is the pixi.toml from before after I have added Quarto to my environment. You can see that the dependencies have been updated to include Quarto.\n[workspace]\nchannels = [\"conda-forge\", \"bioconda\"]\nname = \"sida_test\"\nplatforms = [\"osx-arm64\"]\nversion = \"0.1.0\"\n\n[tasks]\n\n[dependencies]\nquarto = \"&gt;=1.7.32,&lt;2\"",
+    "crumbs": [
+      "Home",
+      "Background knowledge with a bit of hands-on",
+      "Introduction to Pixi"
+    ]
+  },
+  {
+    "objectID": "Day1Session3_pixi.html#running-a-package",
+    "href": "Day1Session3_pixi.html#running-a-package",
+    "title": "Introduction to Pixi",
+    "section": "Running a Package",
+    "text": "Running a Package\nNow that we have an environment with a package running in it, we actually want to use it. Let’s query the help function within Quarto.\npixi run quarto --help\n\n\n\n\n\n\nNote\n\n\n\nTo use other tools, simply substitute quarto with the package you’ve added",
     "crumbs": [
       "Home",
       "Background knowledge with a bit of hands-on",
