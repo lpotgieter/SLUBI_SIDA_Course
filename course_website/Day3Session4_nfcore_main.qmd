@@ -1,3 +1,9 @@
 ---
 title: "Examining main.nf"
 ---
+
+In this session, we will go through the `main.nf` file that actually executes the whole pipeline of the `rnaseq` pipeline we ran on Tuesday. We hope that this session will make the whole process less of a "black box" and more approachable.
+
+You can find the `main.nf` file on [GitHub](https://github.com/nf-core/rnaseq/tree/3.18.0)
+
+One of us will act as a scribe during the session, and record our most important discussion points here for you to look at later.
