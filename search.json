@@ -161,6 +161,18 @@
     ]
   },
   {
+    "objectID": "Day3Session4_nfcore_main.html",
+    "href": "Day3Session4_nfcore_main.html",
+    "title": "Examining main.nf",
+    "section": "",
+    "text": "In this session, we will go through the main.nf file that actually executes the whole pipeline of the rnaseq pipeline we ran on Tuesday. We hope that this session will make the whole process less of a “black box” and more approachable.\nYou can find the main.nf file on GitHub\nOne of us will act as a scribe during the session, and record our most important discussion points here for you to look at later.",
+    "crumbs": [
+      "Home",
+      "Hands-on training",
+      "Examining main.nf"
+    ]
+  },
+  {
     "objectID": "Day3Session2_quarto.html",
     "href": "Day3Session2_quarto.html",
     "title": "Introduction to Markdown and Quarto",
@@ -221,6 +233,42 @@
     ]
   },
   {
+    "objectID": "Day4Session2_use_containers.html",
+    "href": "Day4Session2_use_containers.html",
+    "title": "Using Containers",
+    "section": "",
+    "text": "The aim of this session is to provide you with support if you would like to try to download and run your own containers. If there are common points we missed in our introductory session, or simply common questions, we will add these here.",
+    "crumbs": [
+      "Home",
+      "Hands-on training",
+      "Using Containers"
+    ]
+  },
+  {
+    "objectID": "Day2Session3_nextfow_own_choice.html",
+    "href": "Day2Session3_nextfow_own_choice.html",
+    "title": "Setting up a different nfcore pipeline",
+    "section": "",
+    "text": "For this section, we would like you to test out a different pipeline from nf-core that might be appropriate for your research. We are here to support you in this session.",
+    "crumbs": [
+      "Home",
+      "Hands-on training",
+      "Setting up a different nfcore pipeline"
+    ]
+  },
+  {
+    "objectID": "Day2Session3_nextfow_own_choice.html#things-to-think-about",
+    "href": "Day2Session3_nextfow_own_choice.html#things-to-think-about",
+    "title": "Setting up a different nfcore pipeline",
+    "section": "Things to think about",
+    "text": "Things to think about\n\nIs the pipeline maintained?\nWhat do you need as input?\nWhat are some of the constraints you might face during the setup?",
+    "crumbs": [
+      "Home",
+      "Hands-on training",
+      "Setting up a different nfcore pipeline"
+    ]
+  },
+  {
     "objectID": "Day1Session2_linux.html",
     "href": "Day1Session2_linux.html",
     "title": "A Brief Introduction to Linux",
@@ -278,6 +326,18 @@
       "Home",
       "Background knowledge with a bit of hands-on",
       "A Brief Introduction to Linux"
+    ]
+  },
+  {
+    "objectID": "Day4Session1_results.html",
+    "href": "Day4Session1_results.html",
+    "title": "RNASeq Results",
+    "section": "",
+    "text": "In this session, we will have a look at some of the results that were produced with the nf core pipelines we ran. It’s all good and well running analyses, but you need to be able to do something with the output.",
+    "crumbs": [
+      "Home",
+      "Hands-on training",
+      "RNASeq Results"
     ]
   },
   {
