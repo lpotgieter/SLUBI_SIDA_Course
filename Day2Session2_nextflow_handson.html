@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -249,8 +284,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#setting-up-your-pixi-environment" id="toc-setting-up-your-pixi-environment" class="nav-link" data-scroll-target="#setting-up-your-pixi-environment">Setting Up Your Pixi Environment</a></li>
+  <li><a href="#preparing-the-run" id="toc-preparing-the-run" class="nav-link" data-scroll-target="#preparing-the-run">Preparing The Run</a>
+  <ul class="collapse">
+  <li><a href="#setting-working-and-results-directories" id="toc-setting-working-and-results-directories" class="nav-link" data-scroll-target="#setting-working-and-results-directories">Setting working and results directories</a></li>
+  <li><a href="#setting-all-other-inputs-that-are-required" id="toc-setting-all-other-inputs-that-are-required" class="nav-link" data-scroll-target="#setting-all-other-inputs-that-are-required">Setting all other inputs that are required</a></li>
+  <li><a href="#obtaining-your-json-file" id="toc-obtaining-your-json-file" class="nav-link" data-scroll-target="#obtaining-your-json-file">Obtaining your JSON file</a></li>
+  </ul></li>
+  <li><a href="#starting-the-run" id="toc-starting-the-run" class="nav-link" data-scroll-target="#starting-the-run">Starting The Run</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -274,8 +323,183 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Now that you know about Linux, containers, pixi, and Nextflow, we get to start with the really cool part of our course! In this section, we will create a <code>pixi</code> environment containing <code>nf-core</code> and <code>nextflow</code>. Once we’ve done that, we will turn our attention to <a href="https://nf-co.re">nf-core</a> to set up the <a href="https://nf-co.re/rnaseq/3.18.0/">rnaseq</a> pipeline. Finally, we will run the pipeline.</p>
+</section>
+<section id="setting-up-your-pixi-environment" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-your-pixi-environment">Setting Up Your Pixi Environment</h2>
+<p>In our course directory execute these commands, one after the other.</p>
+<p>Let’s inititalise an environment for this. Again, please substitute your name in the <code>name</code> part of the commands.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> init name_nextflow <span class="at">-c</span> conda-forge <span class="at">-c</span> bioconda</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Change directory into the project you created, and just list the files there</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> name_nextflow</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Add nf-core and Nextflow</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> add nextflow nf-core</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>While <code>apptainer</code> is sticky loaded on this server, it won’t always be the case for other servers. So, you can add <code>apptainer</code> in the <code>add</code> command</p>
+</div>
+</div>
+</div>
+<p>And just check that everything worked, summon the help message from nf-core</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run nf-core <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="preparing-the-run" class="level2">
+<h2 class="anchored" data-anchor-id="preparing-the-run">Preparing The Run</h2>
+<p>From the nf-core homepage, we can search for pipelines. We are going to demo the <a href="https://nf-co.re/rnaseq/3.18.0/">rnaseq</a> pipeline. You can see that there is a lot going on in this pipeline! We will chat more about these things in class rather than including screenshots of everything.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/rnaseq_landing.png" class="img-fluid figure-img"></p>
+<figcaption>rnaseq landing page</figcaption>
+</figure>
+</div>
+<p>Under the <code>Usage</code>, you will find a lot of information that describes the pipeline, including input information, the <code>samplesheet.csv</code> (this one we will make together in class).</p>
+<p>Under the <code>Parameters</code> tab you will find information on all of the things that we will set up in the next step.</p>
+<p>Under the <code>Output</code> tab, you will find information on the expected output generated from the pipeline. This is useful to help you interpret what the pipeline produces.</p>
+<p>To set up our own analysis, we will click on the <code>launch version 3.18.0</code> button. (This was the version on the website at the time of writing this session. The version number may change). We are then redirected to a page where we can fill in all of our information about input files, as well as selecting or deselecting certain parts of the pipeline. We will share the things here that you need to input each time, and go through some finer details based on the discussion with you.</p>
+<section id="setting-working-and-results-directories" class="level3">
+<h3 class="anchored" data-anchor-id="setting-working-and-results-directories">Setting working and results directories</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We recommend that you use absolute paths rather than relative paths for setting your runs up</p>
+</div>
+</div>
+<p>During the first part, you need to set a working and result directory. If you are using a server that has a profile established, you can put the name of the server there. If not, we will create our own configuration profile if we run into memory issues.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/rnaseq_setup1.png" class="img-fluid figure-img"></p>
+<figcaption>Setting work and output directories</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/rnaseq_setup2.png" class="img-fluid figure-img"></p>
+<figcaption>Setting results and input CSV</figcaption>
+</figure>
+</div>
+<p>We will compile the input CSV together in class. This is entirely unique to each analysis.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To list all fastq files with their absolute path, one per line</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> . <span class="at">-maxdepth</span> 1 <span class="at">-type</span> f <span class="at">-name</span> <span class="st">"*.fastq.gz"</span> <span class="at">-exec</span> realpath {} <span class="dt">\;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can substitute the <code>.</code> that indicates it’s only looking in the directory you’re currently in to any other path on your file system</p>
+</div>
+</div>
+</div>
+<section id="configuration-profiles" class="level4">
+<h4 class="anchored" data-anchor-id="configuration-profiles">Configuration profiles</h4>
+<p>Since we are working on a server with a configuration profile established, we have downloaded it and put it in the course folder. If you want to fetch it for yourself</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/hpc2n/intro-course/master/exercises/NEXTFLOW/INTERACTIVE/hpc2n.config</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here is the configuration profile on HPC2N from the above link. The most important things we need to pay attention to are the <code>max_memory</code>, <code>max_cpus</code>, and <code>max_time</code> settings. If you want to create your own profile, you can adjust these to suit your system requirements.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Config profile for HPC2N</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">params</span> {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">config_profile_description</span> = <span class="st">'Cluster profile for HPC2N'</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">config_profile_contact</span> = <span class="st">'Pedro Ojeda @pojeda'</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">config_profile_url</span> = <span class="st">'https://www.hpc2n.umu.se/'</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">project</span> = null</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">clusterOptions</span> = null</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">max_memory</span> = 128.GB</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">max_cpus</span> = 28</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">max_time</span> = 168.h</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">email</span> = <span class="st">'pedroojeda2011@gmail.com'</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="ex">singularity</span> {</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enabled</span> = true</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="ex">process</span> {</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="ex">executor</span> = <span class="st">'slurm'</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="ex">clusterOptions</span> = { <span class="st">"-A </span><span class="va">$params</span><span class="st">.project </span><span class="va">${params</span><span class="er">.clusterOptions ?: ''</span><span class="va">}</span><span class="st">"</span> }</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you copy this config file for yourself, you need to remove the <code>process</code> section, unless you have a <code>slurm</code> job manager installed on your cluster. If you have this, you will defiinitely have a system administrator who can help you write this block to suit your system!</p>
+</div>
+</div>
+</section>
+</section>
+<section id="setting-all-other-inputs-that-are-required" class="level3">
+<h3 class="anchored" data-anchor-id="setting-all-other-inputs-that-are-required">Setting all other inputs that are required</h3>
+<p>In this section, you set variables that are related to your reference genome. If you are using something listed on iGenomes, you can input that name. If you are working with your own reference genome, or something not listed, you need to input the absolute path of the reference genomes you have downloaded.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/rnaseq_setup3.png" class="img-fluid figure-img"></p>
+<figcaption>Reference genome options</figcaption>
+</figure>
+</div>
+<p>Depending on your strategy, you might need to input a corresponding gff as well. It really depends on the kind of analysis you are hoping to perform.</p>
+</section>
+<section id="obtaining-your-json-file" class="level3">
+<h3 class="anchored" data-anchor-id="obtaining-your-json-file">Obtaining your JSON file</h3>
+<p>Once everything is filled in, click on <code>Launch</code> and you will be redirected to another page containing your JSON file that has information on your run. You can either run the analyses by copying the command at the top of the page (BUT DON’T PRESS ENTER JUST YET) or by copying the JSON file a bit lower on the screen and saving it as <code>nf-params.json</code> in your folder on HPC2N.</p>
+</section>
+</section>
+<section id="starting-the-run" class="level2">
+<h2 class="anchored" data-anchor-id="starting-the-run">Starting The Run</h2>
+<p>Since we are running this through Pixi to show you the versatility of environments, we need to submit this through a batch script to slurm. Copy the following text to file called <code>name_submit_rnaseq.sh</code> where <code>name</code> is your name.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash -l</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -A our_proj_allocation</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -n 5</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 24:00:00</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ex">/your_home_directory/.pixi/bin/pixi</span> run nextflow run nf-core/rnaseq <span class="at">-r</span> 3.18.0 <span class="at">-params-file</span> /your_path/nf-params.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>slurm</code> is a job management tool installed on many servers to distribute resources evenly among users. If you are running this on your own machine later, you can just run it through <code>pixi run</code> as before</p>
+</div>
+</div>
+<p>You can check the progress of your job with <code>squeue -u your_username</code></p>
+<p>And now we wait until the run is done!</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,5 +1,65 @@
 [
   {
+    "objectID": "Day2Session2_nextflow_handson.html",
+    "href": "Day2Session2_nextflow_handson.html",
+    "title": "nfcore RNASeq Pipeline",
+    "section": "",
+    "text": "Now that you know about Linux, containers, pixi, and Nextflow, we get to start with the really cool part of our course! In this section, we will create a pixi environment containing nf-core and nextflow. Once we’ve done that, we will turn our attention to nf-core to set up the rnaseq pipeline. Finally, we will run the pipeline.",
+    "crumbs": [
+      "Home",
+      "Hands-on training",
+      "nfcore RNASeq Pipeline"
+    ]
+  },
+  {
+    "objectID": "Day2Session2_nextflow_handson.html#introduction",
+    "href": "Day2Session2_nextflow_handson.html#introduction",
+    "title": "nfcore RNASeq Pipeline",
+    "section": "",
+    "text": "Now that you know about Linux, containers, pixi, and Nextflow, we get to start with the really cool part of our course! In this section, we will create a pixi environment containing nf-core and nextflow. Once we’ve done that, we will turn our attention to nf-core to set up the rnaseq pipeline. Finally, we will run the pipeline.",
+    "crumbs": [
+      "Home",
+      "Hands-on training",
+      "nfcore RNASeq Pipeline"
+    ]
+  },
+  {
+    "objectID": "Day2Session2_nextflow_handson.html#setting-up-your-pixi-environment",
+    "href": "Day2Session2_nextflow_handson.html#setting-up-your-pixi-environment",
+    "title": "nfcore RNASeq Pipeline",
+    "section": "Setting Up Your Pixi Environment",
+    "text": "Setting Up Your Pixi Environment\nIn our course directory execute these commands, one after the other.\nLet’s inititalise an environment for this. Again, please substitute your name in the name part of the commands.\npixi init name_nextflow -c conda-forge -c bioconda\nChange directory into the project you created, and just list the files there\ncd name_nextflow\nls\nAdd nf-core and Nextflow\npixi add nextflow nf-core\n\n\n\n\n\n\nNote\n\n\n\n\n\nWhile apptainer is sticky loaded on this server, it won’t always be the case for other servers. So, you can add apptainer in the add command\n\n\n\nAnd just check that everything worked, summon the help message from nf-core\npixi run nf-core --help",
+    "crumbs": [
+      "Home",
+      "Hands-on training",
+      "nfcore RNASeq Pipeline"
+    ]
+  },
+  {
+    "objectID": "Day2Session2_nextflow_handson.html#preparing-the-run",
+    "href": "Day2Session2_nextflow_handson.html#preparing-the-run",
+    "title": "nfcore RNASeq Pipeline",
+    "section": "Preparing The Run",
+    "text": "Preparing The Run\nFrom the nf-core homepage, we can search for pipelines. We are going to demo the rnaseq pipeline. You can see that there is a lot going on in this pipeline! We will chat more about these things in class rather than including screenshots of everything.\n\n\n\nrnaseq landing page\n\n\nUnder the Usage, you will find a lot of information that describes the pipeline, including input information, the samplesheet.csv (this one we will make together in class).\nUnder the Parameters tab you will find information on all of the things that we will set up in the next step.\nUnder the Output tab, you will find information on the expected output generated from the pipeline. This is useful to help you interpret what the pipeline produces.\nTo set up our own analysis, we will click on the launch version 3.18.0 button. (This was the version on the website at the time of writing this session. The version number may change). We are then redirected to a page where we can fill in all of our information about input files, as well as selecting or deselecting certain parts of the pipeline. We will share the things here that you need to input each time, and go through some finer details based on the discussion with you.\n\nSetting working and results directories\n\n\n\n\n\n\nImportant\n\n\n\nWe recommend that you use absolute paths rather than relative paths for setting your runs up\n\n\nDuring the first part, you need to set a working and result directory. If you are using a server that has a profile established, you can put the name of the server there. If not, we will create our own configuration profile if we run into memory issues.\n\n\n\nSetting work and output directories\n\n\n\n\n\nSetting results and input CSV\n\n\nWe will compile the input CSV together in class. This is entirely unique to each analysis.\n\n\n\n\n\n\nTip\n\n\n\n\n\nTo list all fastq files with their absolute path, one per line\nfind . -maxdepth 1 -type f -name \"*.fastq.gz\" -exec realpath {} \\;\nYou can substitute the . that indicates it’s only looking in the directory you’re currently in to any other path on your file system\n\n\n\n\nConfiguration profiles\nSince we are working on a server with a configuration profile established, we have downloaded it and put it in the course folder. If you want to fetch it for yourself\nwget https://raw.githubusercontent.com/hpc2n/intro-course/master/exercises/NEXTFLOW/INTERACTIVE/hpc2n.config\nHere is the configuration profile on HPC2N from the above link. The most important things we need to pay attention to are the max_memory, max_cpus, and max_time settings. If you want to create your own profile, you can adjust these to suit your system requirements.\n// Config profile for HPC2N\nparams {\n  config_profile_description = 'Cluster profile for HPC2N'\n  config_profile_contact = 'Pedro Ojeda @pojeda'\n  config_profile_url = 'https://www.hpc2n.umu.se/'\n  project = null\n  clusterOptions = null\n  max_memory = 128.GB\n  max_cpus = 28\n  max_time = 168.h\n  email = 'pedroojeda2011@gmail.com'\n}\n\nsingularity {\n  enabled = true\n}\n\nprocess {\n  executor = 'slurm'\n  clusterOptions = { \"-A $params.project ${params.clusterOptions ?: ''}\" }\n}\n\n\n\n\n\n\nNote\n\n\n\nIf you copy this config file for yourself, you need to remove the process section, unless you have a slurm job manager installed on your cluster. If you have this, you will defiinitely have a system administrator who can help you write this block to suit your system!\n\n\n\n\n\nSetting all other inputs that are required\nIn this section, you set variables that are related to your reference genome. If you are using something listed on iGenomes, you can input that name. If you are working with your own reference genome, or something not listed, you need to input the absolute path of the reference genomes you have downloaded.\n\n\n\nReference genome options\n\n\nDepending on your strategy, you might need to input a corresponding gff as well. It really depends on the kind of analysis you are hoping to perform.\n\n\nObtaining your JSON file\nOnce everything is filled in, click on Launch and you will be redirected to another page containing your JSON file that has information on your run. You can either run the analyses by copying the command at the top of the page (BUT DON’T PRESS ENTER JUST YET) or by copying the JSON file a bit lower on the screen and saving it as nf-params.json in your folder on HPC2N.",
+    "crumbs": [
+      "Home",
+      "Hands-on training",
+      "nfcore RNASeq Pipeline"
+    ]
+  },
+  {
+    "objectID": "Day2Session2_nextflow_handson.html#starting-the-run",
+    "href": "Day2Session2_nextflow_handson.html#starting-the-run",
+    "title": "nfcore RNASeq Pipeline",
+    "section": "Starting The Run",
+    "text": "Starting The Run\nSince we are running this through Pixi to show you the versatility of environments, we need to submit this through a batch script to slurm. Copy the following text to file called name_submit_rnaseq.sh where name is your name.\n#!/bin/bash -l\n#SBATCH -A our_proj_allocation\n#SBATCH -n 5\n#SBATCH -t 24:00:00\n\n/your_home_directory/.pixi/bin/pixi run nextflow run nf-core/rnaseq -r 3.18.0 -params-file /your_path/nf-params.json\n\n\n\n\n\n\nNote\n\n\n\nslurm is a job management tool installed on many servers to distribute resources evenly among users. If you are running this on your own machine later, you can just run it through pixi run as before\n\n\nYou can check the progress of your job with squeue -u your_username\nAnd now we wait until the run is done!",
+    "crumbs": [
+      "Home",
+      "Hands-on training",
+      "nfcore RNASeq Pipeline"
+    ]
+  },
+  {
     "objectID": "Day4Session3_r_in_quarto.html",
     "href": "Day4Session3_r_in_quarto.html",
     "title": "Using R in Quarto",
