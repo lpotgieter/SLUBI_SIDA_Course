@@ -1,3 +1,11 @@
 ---
 title: "Setting up a different nfcore pipeline"
 ---
+
+For this section, we would like you to test out a different pipeline from [nf-core](https://nf-co.re) that might be appropriate for your research. We are here to support you in this session.
+
+## Things to think about
+
+1. Is the pipeline maintained?
+2. What do you need as input?
+3. What are some of the constraints you might face during the setup?

@@ -1,3 +1,5 @@
 ---
 title: "RNASeq Results"
 ---
+
+In this session, we will have a look at some of the results that were produced with the nf core pipelines we ran. It's all good and well running analyses, but you need to be able to do something with the output. 
