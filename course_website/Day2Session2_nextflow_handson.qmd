@@ -43,7 +43,7 @@ pixi run nf-core --help
 
 From the nf-core homepage, we can search for pipelines. We are going to demo the [rnaseq](https://nf-co.re/rnaseq/3.18.0/) pipeline. You can see that there is a lot going on in this pipeline! We will chat more about these things in class rather than including screenshots of everything.
 
-![rnaseq landing page](figures/rnaseq_landing.png)
+![rnaseq landing page](figures/rnaseq_landing_page.png)
 
 Under the `Usage`, you will find a lot of information that describes the pipeline, including input information, the `samplesheet.csv` (this one we will make together in class).
 
