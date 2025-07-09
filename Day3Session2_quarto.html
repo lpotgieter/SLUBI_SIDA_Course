@@ -535,16 +535,16 @@ Important
 <section id="publishing-and-sharing-the-project" class="level3">
 <h3 class="anchored" data-anchor-id="publishing-and-sharing-the-project">Publishing and Sharing the Project</h3>
 <p>With Quarto, you can render to HTML, Word, and PDF formats. To render individual files into PDF, add the information from <a href="https://quarto.org/docs/output-formats/pdf-basics.html">this</a> Quarto guide into the header of your document.</p>
-<pre><code>---
-title: "My document"
-format:
-  pdf:
-    toc: true
-    number-sections: true
-    colorlinks: true
----</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">title:</span> <span class="st">"My document"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">format:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">pdf:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">toc:</span> true</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">number-sections:</span> true</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">colorlinks:</span> true</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You will have to install a recent distribution of TeX for this via your terminal</p>
-<pre><code>quarto install tinytex</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> install tinytex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>For this course, we are simply going to render our documents into HTML format. In the next section, we will cover how to host Quarto pages on GitHub.</p>
 
 

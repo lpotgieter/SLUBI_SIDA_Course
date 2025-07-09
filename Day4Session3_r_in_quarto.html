@@ -294,7 +294,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#suppressing-warnings" id="toc-suppressing-warnings" class="nav-link" data-scroll-target="#suppressing-warnings">Suppressing warnings</a></li>
   </ul></li>
-  <li><a href="#useful-packages-we-love" id="toc-useful-packages-we-love" class="nav-link" data-scroll-target="#useful-packages-we-love">Useful Packages we Love!</a></li>
+  <li><a href="#useful-packages-we-love" id="toc-useful-packages-we-love" class="nav-link" data-scroll-target="#useful-packages-we-love">Useful Packages We Love!</a>
+  <ul class="collapse">
+  <li><a href="#pacman" id="toc-pacman" class="nav-link" data-scroll-target="#pacman">pacman</a></li>
+  <li><a href="#here" id="toc-here" class="nav-link" data-scroll-target="#here">here</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -400,10 +404,18 @@ Tip
 </section>
 </section>
 <section id="useful-packages-we-love" class="level2">
-<h2 class="anchored" data-anchor-id="useful-packages-we-love">Useful Packages we Love!</h2>
-<p>here pacman</p>
+<h2 class="anchored" data-anchor-id="useful-packages-we-love">Useful Packages We Love!</h2>
+<p>There are plenty of really cool packages out there, but the 2 that stand out to us to help with project management and organisation, and keep your environment easy to use are <code>pacman</code> and <code>here</code></p>
+<section id="pacman" class="level3">
+<h3 class="anchored" data-anchor-id="pacman">pacman</h3>
+<p><a href="https://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html">pacman</a> is a <strong>pac</strong>kage <strong>man</strong>ager that checks whether you have a library installed before loading it with the <code>p_load</code> function that you can see in the chunks above. If you don’t have the package installed, it checks several repositories, installs it, and loads it. If you have it installed, it simply loads it. You can install particular versions with it, install GitHub packages, unload particular packages, as well as temporarily installing packages. This has made life with R a lot easier, especially if you are supporting users/students across multiple versions of R!</p>
+</section>
+<section id="here" class="level3">
+<h3 class="anchored" data-anchor-id="here">here</h3>
+<p><a href="https://here.r-lib.org">here</a> is a smoother way of setting working directories in R. It sets the working directory relative to a file that is pointed to with the <code>here::i_am("file")</code> command. This is incredibly useful when you are sharing projects and scripts between different people. As long as you are sharing the whole folder and don’t change the architecture (like renaming files and folders), the script will work the same on each system- no more manually changing the <code>setwd()</code> command!</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
