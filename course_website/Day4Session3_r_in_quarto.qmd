@@ -66,3 +66,14 @@ ggplot(
 ```
 
 
+## Useful Packages We Love!
+
+There are plenty of really cool packages out there, but the 2 that stand out to us to help with project management and organisation, and keep your environment easy to use are `pacman` and `here`
+
+### pacman
+
+[pacman](https://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html) is a **pac**kage **man**ager that checks whether you have a library installed before loading it with the `p_load` function that you can see in the chunks above. If you don't have the package installed, it checks several repositories, installs it, and loads it. If you have it installed, it simply loads it. You can install particular versions with it, install GitHub packages, unload particular packages, as well as temporarily installing packages. This has made life with R a lot easier, especially if you are supporting users/students across multiple versions of R!
+
+### here
+
+[here](https://here.r-lib.org) is a smoother way of setting working directories in R. It sets the working directory relative to a file that is pointed to with the `here::i_am("file")` command. This is incredibly useful when you are sharing projects and scripts between different people. As long as you are sharing the whole folder and don't change the architecture (like renaming files and folders), the script will work the same on each system- no more manually changing the `setwd()` command!
