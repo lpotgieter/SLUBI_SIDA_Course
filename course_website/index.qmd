@@ -24,7 +24,8 @@ The website will remain active after the course so that you have access to the m
 | Thursday  | [Nextflow Results](Day4Session1_results.qmd)  |
 |   | [Using Containers Outside of Nextflow](Day4Session2_use_containers.qmd)  |
 |  | [Using R and Other Languages in Quarto](Day4Session3_r_in_quarto.qmd)  |
-| Friday  | What are your needs? How can you implement this in your own institutions?  |
+| Friday  | [AI in Bioinformatics](Day5Session1_AI.qmd)| 
+|   | What are your needs? How can you implement this in your own institutions?  |
 
 : Program {.striped .hover}
 

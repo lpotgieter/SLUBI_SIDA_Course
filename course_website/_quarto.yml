@@ -24,6 +24,7 @@ website:
           - Day1Session2_linux.qmd
           - Day1Session3_pixi.qmd
           - Day2Session1_containers.qmd
+          - Day5Session1_AI.qmd
       - section: "Hands-on training"
         contents:
           - Day2Session2_nextflow_handson.qmd
