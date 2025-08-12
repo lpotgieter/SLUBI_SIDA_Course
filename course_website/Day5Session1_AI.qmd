@@ -1,5 +1,5 @@
 ---
-title: "Using R in Quarto"
+title: "Caution: AI in Bioinformatics"
 ---
 
 ## Introduction
