@@ -105,7 +105,7 @@ Here is the pixi.toml from before after I have added Quarto to my environment. Y
 ```{.bash}
 [workspace]
 channels = ["conda-forge", "bioconda"]
-name = "sida_test"
+name = "sida_quarto"
 platforms = ["osx-arm64"]
 version = "0.1.0"
 
