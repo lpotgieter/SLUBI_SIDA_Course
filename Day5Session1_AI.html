@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -401,7 +436,12 @@ Note
 <section id="data-privacy-and-legal-concerns" class="level3">
 <h3 class="anchored" data-anchor-id="data-privacy-and-legal-concerns">Data Privacy and Legal Concerns</h3>
 <p>Data privacy has been vital in the development and use of AI. The use of copyrighted material in training AI is being discussed and debated in several courts. The questions around using <code>text and data mining</code> are divisive with <a href="https://informationlabs.org/the-ai-training-debate-why-focusing-on-copyright-is-missing-the-point/">some parties</a> arguing that finding patterns, trends, and insights in existing data being how new research is done by humans and should be extended to AI, while <a href="https://www.lawpub.se/artikel/4802">others</a>, particularly in the European context, disagree to some extent. Understanding the legality of the service you use in different countries falls on you as a user.</p>
-<p>AI as browser extensions steal deeply personal information when enabled in a users’ <a href="https://arxiv.org/pdf/2503.16586">browser</a> including financial, education, and medical information. The authors have also <a href="https://www.euronews.com/next/2025/08/13/ai-browsers-share-sensitive-personal-data-new-study-finds">commented</a> on how these practices interfere with the company’s own Terms of Service (ToS) as well as privacy legislation.</p>
+<p>The Terms of Service (ToS) of different GPTs are important when deciding whether to use a GPT at all. For example, <a href="https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html">Deepseek’s ToS</a> (collected on 15.08.2025) states</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Account</span> Personal Data. We collect Personal Data that you provide when you set up an account, such as your date of birth <span class="er">(</span><span class="ex">where</span> applicable<span class="kw">)</span><span class="ex">,</span> username <span class="er">(</span><span class="ex">where</span> applicable<span class="kw">)</span><span class="ex">,</span> email address and/or telephone number, and password.</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">User</span> Input. When you use our Services, we may collect your text input, prompt, uploaded files, feedback, chat history, or other content that you provide to our model and Services <span class="er">(</span><span class="ex">“Prompts”</span> or <span class="st">"Inputs"</span><span class="kw">)</span><span class="bu">.</span> We generate responses <span class="er">(</span><span class="ex">“Outputs”</span><span class="kw">)</span> <span class="ex">based</span> on your Inputs.</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Personal</span> Data When You Contact Us. When you contact us, we collect the Personal Data you send us, such as proof of identity or age, contact details, feedback or inquiries about your use of the Services or Personal Data about possible violations of our Terms of Service <span class="er">(</span><span class="ex">our</span> “Terms”<span class="kw">)</span> <span class="ex">or</span> other policies.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Biological data enjoys a high level of protection, and is often considered as highly sensitive. Too often, users will input sequences, tables, or other data into a GPT to find ways to plot data, perform sequence annotations, or similar tasks. Be wary of doing this. Check the ToS explicitly, and frequently. Try to use GDPR compliant GPT’s if you must use a GPT.</p>
+<p>AI as browser extensions steal deeply personal information when enabled in a users’ <a href="https://arxiv.org/pdf/2503.16586">browser</a> including financial, education, and medical information, whether an extension is being actively used or not. The authors have also <a href="https://www.euronews.com/next/2025/08/13/ai-browsers-share-sensitive-personal-data-new-study-finds">commented</a> on how these practices interfere with the company’s own ToS as well as privacy legislation.</p>
 </section>
 <section id="personal-responsibility" class="level3">
 <h3 class="anchored" data-anchor-id="personal-responsibility">Personal Responsibility</h3>
