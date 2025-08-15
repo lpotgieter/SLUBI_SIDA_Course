@@ -83,7 +83,17 @@ If one combines the effect of passively learning with AI and the loss of product
 
 Data privacy has been vital in the development and use of AI. The use of copyrighted material in training AI is being discussed and debated in several courts. The questions around using `text and data mining` are divisive with [some parties](https://informationlabs.org/the-ai-training-debate-why-focusing-on-copyright-is-missing-the-point/) arguing that finding patterns, trends, and insights in existing data being how new research is done by humans and should be extended to AI, while [others](https://www.lawpub.se/artikel/4802), particularly in the European context, disagree to some extent. Understanding the legality of the service you use in different countries falls on you as a user.
 
-AI as browser extensions steal deeply personal information when enabled in a users' [browser](https://arxiv.org/pdf/2503.16586) including financial, education, and medical information. The authors have also [commented](https://www.euronews.com/next/2025/08/13/ai-browsers-share-sensitive-personal-data-new-study-finds) on how these practices interfere with the company's own Terms of Service (ToS) as well as privacy legislation.
+The Terms of Service (ToS) of different GPTs are important when deciding whether to use a GPT at all. For example, [Deepseek's ToS](https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html) (collected on 15.08.2025) states
+
+```{.bash}
+Account Personal Data. We collect Personal Data that you provide when you set up an account, such as your date of birth (where applicable), username (where applicable), email address and/or telephone number, and password.
+User Input. When you use our Services, we may collect your text input, prompt, uploaded files, feedback, chat history, or other content that you provide to our model and Services (“Prompts” or "Inputs"). We generate responses (“Outputs”) based on your Inputs.
+Personal Data When You Contact Us. When you contact us, we collect the Personal Data you send us, such as proof of identity or age, contact details, feedback or inquiries about your use of the Services or Personal Data about possible violations of our Terms of Service (our “Terms”) or other policies.
+```
+
+Biological data enjoys a high level of protection, and is often considered as highly sensitive. Too often, users will input sequences, tables, or other data into a GPT to find ways to plot data, perform sequence annotations, or similar tasks. Be wary of doing this. Check the ToS explicitly, and frequently. Try to use GDPR compliant GPT's if you must use a GPT.
+
+AI as browser extensions steal deeply personal information when enabled in a users' [browser](https://arxiv.org/pdf/2503.16586) including financial, education, and medical information, whether an extension is being actively used or not. The authors have also [commented](https://www.euronews.com/next/2025/08/13/ai-browsers-share-sensitive-personal-data-new-study-finds) on how these practices interfere with the company's own ToS as well as privacy legislation.
 
 ### Personal Responsibility
 
