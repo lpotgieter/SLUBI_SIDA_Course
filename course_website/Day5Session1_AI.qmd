@@ -2,9 +2,18 @@
 title: "Caution: AI in Bioinformatics"
 ---
 
+::: {.callout-caution}
+
+While the lure of AI is becoming more present in our daily lives, remember that you do not **need** it. You were perfectly able to design a packing list for your upcoming trip. You were able to look at a paper to find answers to your scientific questions. You knew how to query a vignette in R to determine how a function could be implemented.
+
+Life was a bit slower, but you used your mind and your agency. You made decisions. Please do not confuse convenience with need!
+
+:::
+
+
 ## Introduction
 
-In the past 2 years, AI has become more mainstream. The primary kind of AI people think of, is a Large Language Model (LLM). At this point, you cannot really avoid contact with these models anymore as they have infiltrated every aspect of the internet.
+In the past 3 years, AI has become more mainstream. The primary kind of AI people think of, is a Large Language Model (LLM). At this point, you cannot really avoid contact with these models anymore as they have infiltrated every aspect of the internet.
 
 ![Searching LLM with Google to be answered with an LLM response](figures/llm1.png)
 
@@ -14,7 +23,7 @@ This is not an AI theory course, and we really do not have enough knowledge to e
 
 ## Machine Learning in Bioinformatics
 
-Machine learning (ML) has been used in bioinformatics for many decades on every level. Before ML, algorithms had to be programmed by hand rather than having the algorithms learn features of a dataset. With ML, features of a dataset can be annotated based on previously annotated datasets. These algorithms were a mix of supervised (learning on annotated data) and unsupervised (learning on unannotated data) learning, depending on the function of the algorithm. 
+Machine learning (ML) has been used in bioinformatics and other fields of data science for many decades on every level. Before ML, algorithms had to be programmed by hand rather than having the algorithms learn features of a dataset. With ML, features of a dataset can be annotated based on previously annotated datasets. These algorithms were a mix of supervised (learning on annotated data) and unsupervised (learning on unannotated data) learning, depending on the function of the algorithm. 
 
 Supervised algorithms are used for classification and regression analyses. Unsupervised algorithms are used to discover hidden patterns in data without needing a human's input. Unsupervised algorithms are used in clustering, association, and dimensionality reduction
 
@@ -24,49 +33,35 @@ Supervised algorithms are used for classification and regression analyses. Unsup
 
 **Regression**: Focus on understanding dependent and indepedent variables 
 
-**Clustering**: 
-
-**Association**:
-
-**Dimensionality reduction**:
-
 :::
 
-For more info, see [here](https://www.ibm.com/think/topics/supervised-vs-unsupervised-learning), [here](https://www.sciencedirect.com/science/article/pii/S0079610719301981), .
+For more info, see [here](https://www.ibm.com/think/topics/supervised-vs-unsupervised-learning), and [here](https://www.sciencedirect.com/science/article/pii/S0079610719301981).
 
-There is no arguing that these algorithms have led to great progress within the field of bioinformatics
+There is no arguing that these algorithms have led to great progress within the field of bioinformatics. Generative AI is one of the next steps in the evolution of applying machine learning in our lives.
 
-## Impact of AI
+## Incorporation of AI in Our Lives
 
 ChatGPT gained 100 million users in the 2 months after its release in 2022, making it the fastest-growing consumr application in [history](https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/). Generative AI (GenAI) models now come in many different flavours, depending on the developer. 
 
 ![GenAI chatbots by market share in August 2025 from [FirstPageSage](https://firstpagesage.com/reports/top-generative-ai-chatbots/)](figures/genai_marketshare.png)
 
-### Shortcomings We Must Be Aware Of
+As with earlier iterations of supervised and unsupervised algorithms, these self-supervised algorithms also need data to be trained.
 
 #### Training Data
 
 GenAI has all been trained on existing data. There has always been a bias in whose information gets captured. In a historical context, history was recorded by the party that won the war and destroyed existing knowledge. This also changed as different empires and narratives rose and fell. With digitisation, this information has landed on the internet. In the more modern "Internet Age", everyone with an internet connection can technically post anything they'd like on the internet. There are different biases at play- not everyone has equal access to the internet, some people may not have strong enough opinions to post about something online, some people prefer to read rather than contribute, while others take pleasure in "shit-posting".
 
-The differences in how people use the internet have an effect on how useful the trained models become. In this example, you can clearly see what the effect of shit-posting is.
+The differences in how people use the internet have an effect on how useful the trained models become. In this example, you can clearly see what the effect of bad training data is.
 
 ![GenAI answer to a simple question](figures/ai_kill_yourself.png)
 
-GenAI's are not programmed to say that they do not know something, and will happily hallucinate an answer. If you do not know better, or trust the computers, you may take this answer as true and post it elsewhere. As the use of AI's increases, AI generated content is used to train new AI's.
+GenAI's are not programmed to say that they do not know something, and will happily hallucinate an answer. If you do not know better, or trust the computers, you may take this answer as true and post it elsewhere. As the use of AI's increases, AI generated content is used to train new AI's. Gary Illyes from Google has spoken about ["human curated" vs "human created"](https://www.searchenginejournal.com/google-says-ai-generated-content-should-be-human-reviewed/553486/) data being used as training data. 
 
 In a perfect world, GenAI would be trained on perfectly curated data, but even with all of the data that we have on the internet at the moment, we do not have nearly enough data for this. We have to make do with what we have.
 
-## Some Negatives of Using AI
+## Some Words of Caution 
 
-We have all seen the amazing things we can do with GenAI, so I will not go into detail about how *cool* AI is. I will highlight some of the drawbacks of AI, and things we need to keep an eye on as the use of AI increases. I don't believe we will ever be able to get away from GenAI, but we can make decisions to use AI responsibly.
-
-::: {.callout-caution}
-
-While the lure of AI is becoming more present in our daily lives, remember that you do not **need** it. You were perfectly able to design a packing list for your upcoming trip. You were able to look at a paper to find answers to your scientific questions. You knew how to query a vignette in R to determine how a function could be implemented.
-
-Life was a bit slower, but you used your mind and your agency. You made decisions. Please do not confuse convenience with need!
-
-:::
+GenAI is becoming more integrated in every sector of our lives. It is important that we use the new technology responsibly. When Google first came out, there were classes on how to use the search engine, determine validity of sources and information, and how to stay safe on the internet. This section aims to raise awareness about commonly overlooked aspects of GPT use.
 
 ### Learning with AI
 
@@ -82,9 +77,19 @@ The study also found that when AI is allowed, the participants spent less time c
 
 ![Reasons for loss of productivity with AI](figures/metr_reasons.png)
 
-If one combines the effect of passively learning with AI and the loss of productivity with, it becomes clear that AI must be used very carefully
+If one combines the effect of passively learning with AI and the loss of productivity with, it becomes clear that AI must be used very carefully.
 
-### Data Privacy
+### Data Privacy and Legal Concerns
+
+Data privacy has been vital in the development and use of AI. The use of copyrighted material in training AI is being discussed and debated in several courts. The questions around using `text and data mining` are divisive with [some parties](https://informationlabs.org/the-ai-training-debate-why-focusing-on-copyright-is-missing-the-point/) arguing that finding patterns, trends, and insights in existing data being how new research is done by humans and should be extended to AI, while [others](https://www.lawpub.se/artikel/4802), particularly in the European context, disagree to some extent. Understanding the legality of the service you use in different countries falls on you as a user.
+
+AI as browser extensions steal deeply personal information when enabled in a users' [browser](https://arxiv.org/pdf/2503.16586) including financial, education, and medical information. The authors have also [commented](https://www.euronews.com/next/2025/08/13/ai-browsers-share-sensitive-personal-data-new-study-finds) on how these practices interfere with the company's own Terms of Service (ToS) as well as privacy legislation.
+
+### Personal Responsibility
+
+You as a user are responsible for the AI generated content you choose to use. If you, for instance, ask AI to generate a brand logo for you that is too close to something that exists already, the original owner is free to sue you as an [individual](https://www.theregister.com/2025/08/12/genai_lawsuit/) for copyright infringement. 
+
+As scientists, we know that we should use peer-reviewed resources whenever possible. It is why we cannot cite Wikipedia in a scientific article. GPT's have been widely shown to [fabricate](https://medium.com/@nomannayeem/the-fabrication-problem-how-ai-models-generate-fake-citations-urls-and-references-55c052299936) [citations](https://www.nature.com/articles/s41598-023-41032-5) based on how it has learnt a citation should look. It is up to you as a user to check every single citation that AI generates since you are responsible for what you write.
 
 ### Global Linguistic Changes 
 
@@ -102,9 +107,7 @@ This course was written by two people, and each person wrote their own sections 
 
 :::
 
-Can we risk losing our individuality to subtle linguistic shifts? 
-
-We know that subtle linguistic shifts can change [emotional regulation](https://journals.sagepub.com/doi/10.1177/0963721419861411) within an individual. We also know that [sociolinguistics](https://en.wikipedia.org/wiki/Sociolinguistics), even the slightest linguistic features, serve to bind or divide us. At the risk of sounding like an alarmist, we must be vigilant. 
+We know that subtle linguistic shifts can change [emotional regulation](https://journals.sagepub.com/doi/10.1177/0963721419861411) within an individual. We also know that [sociolinguistics](https://en.wikipedia.org/wiki/Sociolinguistics), even the slightest linguistic features, serve to bind or divide us.
 
 ### AI on the Internet
 
@@ -122,18 +125,18 @@ Some data centers are being built near poor communities, drain resources from, a
 
 While we cannot do anything about where data centers are built, we can make informed decisions about which platforms (if any), we use. We can also be careful with the number of queries we send, and how we use our queries. In April 2025, the CEO of OpenAI [said](https://www.vice.com/en/article/telling-chatgpt-please-and-thank-you-costs-openai-millions-ceo-claims/) that polite requests like "please" and "thank you" have cost tens of millions of dollars due to the cost of electricity.
 
-## How To Make The Best Of The Situation
+## How To Decide When To Use AI
 
 If we know the risks and the true cost of what we are doing, we can make informed decisions about how we chose to incorporate new technologies into our day-to-day and working lives.
 
-Here are some questions I ask myself before I even open my GPT of choice
+Here are some questions that we find useful to ask ourselves before opening a GPT:
 
 1. Am I phrasing my prompt in a good way? [Here](https://www.pointloma.edu/resources/business-leadership/how-optimize-your-chatgpt-experience-prompt-engineering) is a guide to prompt engineering that might be useful
 2. Can I find this information any other way?
 3. How much time am I saving by looking this question up here vs on BioStars, for example?
 4. Do I know enough about the topic to know whether the GPT is lying to me?
-5. What are the consequences of testing the validity of the GPT solution? Can I potentially corrupt my data or my system? Am I lie to someone who trusts me enough to ask my opinion?
+5. What are the consequences of testing the validity of the GPT solution? Can I potentially corrupt my data or my system? Is there a potential for me to lie to someone who trusts me enough to ask my opinion?
 
-If I cannot say with certainty that I will be able to find a hallucination or a lie, I will not put my thoughts to my GPT. If there is even the slightest chance that I am spreading disinformation by repeating information from the GPT, I will not put my thoughts to the GPT.
+If a GPT is used to learn a new skill, remember how important active learning is. Seek explanations for everything the GPT tells you. Find independent sources that were produced by experts to validate your learning. 
 
-If I use a GPT to learn a new skill, or show a student how to do this, I highlight how important active learning is. I suggest that they seek explanations for everything themselves, and doublecheck everything the GPT tells them.
+Hold on to the ability to learn and the desire to be curious.
