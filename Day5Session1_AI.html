@@ -262,20 +262,18 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#machine-learning-in-bioinformatics" id="toc-machine-learning-in-bioinformatics" class="nav-link" data-scroll-target="#machine-learning-in-bioinformatics">Machine Learning in Bioinformatics</a></li>
-  <li><a href="#impact-of-ai" id="toc-impact-of-ai" class="nav-link" data-scroll-target="#impact-of-ai">Impact of AI</a>
-  <ul class="collapse">
-  <li><a href="#shortcomings-we-must-be-aware-of" id="toc-shortcomings-we-must-be-aware-of" class="nav-link" data-scroll-target="#shortcomings-we-must-be-aware-of">Shortcomings We Must Be Aware Of</a></li>
-  </ul></li>
-  <li><a href="#some-negatives-of-using-ai" id="toc-some-negatives-of-using-ai" class="nav-link" data-scroll-target="#some-negatives-of-using-ai">Some Negatives of Using AI</a>
+  <li><a href="#incorporation-of-ai-in-our-lives" id="toc-incorporation-of-ai-in-our-lives" class="nav-link" data-scroll-target="#incorporation-of-ai-in-our-lives">Incorporation of AI in Our Lives</a></li>
+  <li><a href="#some-words-of-caution" id="toc-some-words-of-caution" class="nav-link" data-scroll-target="#some-words-of-caution">Some Words of Caution</a>
   <ul class="collapse">
   <li><a href="#learning-with-ai" id="toc-learning-with-ai" class="nav-link" data-scroll-target="#learning-with-ai">Learning with AI</a></li>
   <li><a href="#productivity-with-ai" id="toc-productivity-with-ai" class="nav-link" data-scroll-target="#productivity-with-ai">Productivity with AI</a></li>
-  <li><a href="#data-privacy" id="toc-data-privacy" class="nav-link" data-scroll-target="#data-privacy">Data Privacy</a></li>
+  <li><a href="#data-privacy-and-legal-concerns" id="toc-data-privacy-and-legal-concerns" class="nav-link" data-scroll-target="#data-privacy-and-legal-concerns">Data Privacy and Legal Concerns</a></li>
+  <li><a href="#personal-responsibility" id="toc-personal-responsibility" class="nav-link" data-scroll-target="#personal-responsibility">Personal Responsibility</a></li>
   <li><a href="#global-linguistic-changes" id="toc-global-linguistic-changes" class="nav-link" data-scroll-target="#global-linguistic-changes">Global Linguistic Changes</a></li>
   <li><a href="#ai-on-the-internet" id="toc-ai-on-the-internet" class="nav-link" data-scroll-target="#ai-on-the-internet">AI on the Internet</a></li>
   <li><a href="#environmnetal-impact" id="toc-environmnetal-impact" class="nav-link" data-scroll-target="#environmnetal-impact">Environmnetal Impact</a></li>
   </ul></li>
-  <li><a href="#how-to-make-the-best-of-the-situation" id="toc-how-to-make-the-best-of-the-situation" class="nav-link" data-scroll-target="#how-to-make-the-best-of-the-situation">How To Make The Best Of The Situation</a></li>
+  <li><a href="#how-to-decide-when-to-use-ai" id="toc-how-to-decide-when-to-use-ai" class="nav-link" data-scroll-target="#how-to-decide-when-to-use-ai">How To Decide When To Use AI</a></li>
   </ul>
 </nav>
     </div>
@@ -301,74 +299,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In the past 2 years, AI has become more mainstream. The primary kind of AI people think of, is a Large Language Model (LLM). At this point, you cannot really avoid contact with these models anymore as they have infiltrated every aspect of the internet.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/llm1.png" class="img-fluid figure-img"></p>
-<figcaption>Searching LLM with Google to be answered with an LLM response</figcaption>
-</figure>
-</div>
-<p>These algorithms are language models trained on incredibly large datasets. They are trained to recognise and generate natural language. The chatbots we are all familiar with are generative pretrained transformers (GPTs). These can be trained for specific tasks, or guided by prompt generation.</p>
-<p>This is not an AI theory course, and we really do not have enough knowledge to explain the underlying theory beyond a rudimentary level. We would like to discuss the impact of AI on you as a user, and advocate for responsible use of AI in your current and future work.</p>
-</section>
-<section id="machine-learning-in-bioinformatics" class="level2">
-<h2 class="anchored" data-anchor-id="machine-learning-in-bioinformatics">Machine Learning in Bioinformatics</h2>
-<p>Machine learning (ML) has been used in bioinformatics for many decades on every level. Before ML, algorithms had to be programmed by hand rather than having the algorithms learn features of a dataset. With ML, features of a dataset can be annotated based on previously annotated datasets. These algorithms were a mix of supervised (learning on annotated data) and unsupervised (learning on unannotated data) learning, depending on the function of the algorithm.</p>
-<p>Supervised algorithms are used for classification and regression analyses. Unsupervised algorithms are used to discover hidden patterns in data without needing a human’s input. Unsupervised algorithms are used in clustering, association, and dimensionality reduction</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Classification</strong>: Output is a discrete variable. Linear classifiers, support vector machines, decision trees, random forests. E.g. annotating a new genome based on genome annotations from existing species.</p>
-<p><strong>Regression</strong>: Focus on understanding dependent and indepedent variables</p>
-<p><strong>Clustering</strong>:</p>
-<p><strong>Association</strong>:</p>
-<p><strong>Dimensionality reduction</strong>:</p>
-</div>
-</div>
-</div>
-<p>For more info, see <a href="https://www.ibm.com/think/topics/supervised-vs-unsupervised-learning">here</a>, <a href="https://www.sciencedirect.com/science/article/pii/S0079610719301981">here</a>, .</p>
-<p>There is no arguing that these algorithms have led to great progress within the field of bioinformatics</p>
-</section>
-<section id="impact-of-ai" class="level2">
-<h2 class="anchored" data-anchor-id="impact-of-ai">Impact of AI</h2>
-<p>ChatGPT gained 100 million users in the 2 months after its release in 2022, making it the fastest-growing consumr application in <a href="https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/">history</a>. Generative AI (GenAI) models now come in many different flavours, depending on the developer.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/genai_marketshare.png" class="img-fluid figure-img"></p>
-<figcaption>GenAI chatbots by market share in August 2025 from <a href="https://firstpagesage.com/reports/top-generative-ai-chatbots/">FirstPageSage</a></figcaption>
-</figure>
-</div>
-<section id="shortcomings-we-must-be-aware-of" class="level3">
-<h3 class="anchored" data-anchor-id="shortcomings-we-must-be-aware-of">Shortcomings We Must Be Aware Of</h3>
-<section id="training-data" class="level4">
-<h4 class="anchored" data-anchor-id="training-data">Training Data</h4>
-<p>GenAI has all been trained on existing data. There has always been a bias in whose information gets captured. In a historical context, history was recorded by the party that won the war and destroyed existing knowledge. This also changed as different empires and narratives rose and fell. With digitisation, this information has landed on the internet. In the more modern “Internet Age”, everyone with an internet connection can technically post anything they’d like on the internet. There are different biases at play- not everyone has equal access to the internet, some people may not have strong enough opinions to post about something online, some people prefer to read rather than contribute, while others take pleasure in “shit-posting”.</p>
-<p>The differences in how people use the internet have an effect on how useful the trained models become. In this example, you can clearly see what the effect of shit-posting is.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/ai_kill_yourself.png" class="img-fluid figure-img"></p>
-<figcaption>GenAI answer to a simple question</figcaption>
-</figure>
-</div>
-<p>GenAI’s are not programmed to say that they do not know something, and will happily hallucinate an answer. If you do not know better, or trust the computers, you may take this answer as true and post it elsewhere. As the use of AI’s increases, AI generated content is used to train new AI’s.</p>
-<p>In a perfect world, GenAI would be trained on perfectly curated data, but even with all of the data that we have on the internet at the moment, we do not have nearly enough data for this. We have to make do with what we have.</p>
-</section>
-</section>
-</section>
-<section id="some-negatives-of-using-ai" class="level2">
-<h2 class="anchored" data-anchor-id="some-negatives-of-using-ai">Some Negatives of Using AI</h2>
-<p>We have all seen the amazing things we can do with GenAI, so I will not go into detail about how <em>cool</em> AI is. I will highlight some of the drawbacks of AI, and things we need to keep an eye on as the use of AI increases. I don’t believe we will ever be able to get away from GenAI, but we can make decisions to use AI responsibly.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -383,6 +313,69 @@ Caution
 <p>Life was a bit slower, but you used your mind and your agency. You made decisions. Please do not confuse convenience with need!</p>
 </div>
 </div>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In the past 3 years, AI has become more mainstream. The primary kind of AI people think of, is a Large Language Model (LLM). At this point, you cannot really avoid contact with these models anymore as they have infiltrated every aspect of the internet.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/llm1.png" class="img-fluid figure-img"></p>
+<figcaption>Searching LLM with Google to be answered with an LLM response</figcaption>
+</figure>
+</div>
+<p>These algorithms are language models trained on incredibly large datasets. They are trained to recognise and generate natural language. The chatbots we are all familiar with are generative pretrained transformers (GPTs). These can be trained for specific tasks, or guided by prompt generation.</p>
+<p>This is not an AI theory course, and we really do not have enough knowledge to explain the underlying theory beyond a rudimentary level. We would like to discuss the impact of AI on you as a user, and advocate for responsible use of AI in your current and future work.</p>
+</section>
+<section id="machine-learning-in-bioinformatics" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning-in-bioinformatics">Machine Learning in Bioinformatics</h2>
+<p>Machine learning (ML) has been used in bioinformatics and other fields of data science for many decades on every level. Before ML, algorithms had to be programmed by hand rather than having the algorithms learn features of a dataset. With ML, features of a dataset can be annotated based on previously annotated datasets. These algorithms were a mix of supervised (learning on annotated data) and unsupervised (learning on unannotated data) learning, depending on the function of the algorithm.</p>
+<p>Supervised algorithms are used for classification and regression analyses. Unsupervised algorithms are used to discover hidden patterns in data without needing a human’s input. Unsupervised algorithms are used in clustering, association, and dimensionality reduction</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Classification</strong>: Output is a discrete variable. Linear classifiers, support vector machines, decision trees, random forests. E.g. annotating a new genome based on genome annotations from existing species.</p>
+<p><strong>Regression</strong>: Focus on understanding dependent and indepedent variables</p>
+</div>
+</div>
+</div>
+<p>For more info, see <a href="https://www.ibm.com/think/topics/supervised-vs-unsupervised-learning">here</a>, and <a href="https://www.sciencedirect.com/science/article/pii/S0079610719301981">here</a>.</p>
+<p>There is no arguing that these algorithms have led to great progress within the field of bioinformatics. Generative AI is one of the next steps in the evolution of applying machine learning in our lives.</p>
+</section>
+<section id="incorporation-of-ai-in-our-lives" class="level2">
+<h2 class="anchored" data-anchor-id="incorporation-of-ai-in-our-lives">Incorporation of AI in Our Lives</h2>
+<p>ChatGPT gained 100 million users in the 2 months after its release in 2022, making it the fastest-growing consumr application in <a href="https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/">history</a>. Generative AI (GenAI) models now come in many different flavours, depending on the developer.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/genai_marketshare.png" class="img-fluid figure-img"></p>
+<figcaption>GenAI chatbots by market share in August 2025 from <a href="https://firstpagesage.com/reports/top-generative-ai-chatbots/">FirstPageSage</a></figcaption>
+</figure>
+</div>
+<p>As with earlier iterations of supervised and unsupervised algorithms, these self-supervised algorithms also need data to be trained.</p>
+<section id="training-data" class="level4">
+<h4 class="anchored" data-anchor-id="training-data">Training Data</h4>
+<p>GenAI has all been trained on existing data. There has always been a bias in whose information gets captured. In a historical context, history was recorded by the party that won the war and destroyed existing knowledge. This also changed as different empires and narratives rose and fell. With digitisation, this information has landed on the internet. In the more modern “Internet Age”, everyone with an internet connection can technically post anything they’d like on the internet. There are different biases at play- not everyone has equal access to the internet, some people may not have strong enough opinions to post about something online, some people prefer to read rather than contribute, while others take pleasure in “shit-posting”.</p>
+<p>The differences in how people use the internet have an effect on how useful the trained models become. In this example, you can clearly see what the effect of bad training data is.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/ai_kill_yourself.png" class="img-fluid figure-img"></p>
+<figcaption>GenAI answer to a simple question</figcaption>
+</figure>
+</div>
+<p>GenAI’s are not programmed to say that they do not know something, and will happily hallucinate an answer. If you do not know better, or trust the computers, you may take this answer as true and post it elsewhere. As the use of AI’s increases, AI generated content is used to train new AI’s. Gary Illyes from Google has spoken about <a href="https://www.searchenginejournal.com/google-says-ai-generated-content-should-be-human-reviewed/553486/">“human curated” vs “human created”</a> data being used as training data.</p>
+<p>In a perfect world, GenAI would be trained on perfectly curated data, but even with all of the data that we have on the internet at the moment, we do not have nearly enough data for this. We have to make do with what we have.</p>
+</section>
+</section>
+<section id="some-words-of-caution" class="level2">
+<h2 class="anchored" data-anchor-id="some-words-of-caution">Some Words of Caution</h2>
+<p>GenAI is becoming more integrated in every sector of our lives. It is important that we use the new technology responsibly. When Google first came out, there were classes on how to use the search engine, determine validity of sources and information, and how to stay safe on the internet. This section aims to raise awareness about commonly overlooked aspects of GPT use.</p>
 <section id="learning-with-ai" class="level3">
 <h3 class="anchored" data-anchor-id="learning-with-ai">Learning with AI</h3>
 <p>AI has great potential in the field of education. ChatGPT has been shown to be highly beneficial in an educational <a href="https://www.nature.com/articles/s41599-025-04787-y">environment</a> when integrated properly. However, the use of AI in this setting must be balanced and carefully curated. A 2025 <a href="https://arxiv.org/pdf/2506.08872v1">pre-print</a> by Kosmyna et al showed that adults that used ChatGPT to write SAT type essays were outperformed consistently by adults that wrote the same essay without the support of an AI, and had significantly lower brain engagement.</p>
@@ -403,10 +396,17 @@ Caution
 <figcaption>Reasons for loss of productivity with AI</figcaption>
 </figure>
 </div>
-<p>If one combines the effect of passively learning with AI and the loss of productivity with, it becomes clear that AI must be used very carefully</p>
+<p>If one combines the effect of passively learning with AI and the loss of productivity with, it becomes clear that AI must be used very carefully.</p>
 </section>
-<section id="data-privacy" class="level3">
-<h3 class="anchored" data-anchor-id="data-privacy">Data Privacy</h3>
+<section id="data-privacy-and-legal-concerns" class="level3">
+<h3 class="anchored" data-anchor-id="data-privacy-and-legal-concerns">Data Privacy and Legal Concerns</h3>
+<p>Data privacy has been vital in the development and use of AI. The use of copyrighted material in training AI is being discussed and debated in several courts. The questions around using <code>text and data mining</code> are divisive with <a href="https://informationlabs.org/the-ai-training-debate-why-focusing-on-copyright-is-missing-the-point/">some parties</a> arguing that finding patterns, trends, and insights in existing data being how new research is done by humans and should be extended to AI, while <a href="https://www.lawpub.se/artikel/4802">others</a>, particularly in the European context, disagree to some extent. Understanding the legality of the service you use in different countries falls on you as a user.</p>
+<p>AI as browser extensions steal deeply personal information when enabled in a users’ <a href="https://arxiv.org/pdf/2503.16586">browser</a> including financial, education, and medical information. The authors have also <a href="https://www.euronews.com/next/2025/08/13/ai-browsers-share-sensitive-personal-data-new-study-finds">commented</a> on how these practices interfere with the company’s own Terms of Service (ToS) as well as privacy legislation.</p>
+</section>
+<section id="personal-responsibility" class="level3">
+<h3 class="anchored" data-anchor-id="personal-responsibility">Personal Responsibility</h3>
+<p>You as a user are responsible for the AI generated content you choose to use. If you, for instance, ask AI to generate a brand logo for you that is too close to something that exists already, the original owner is free to sue you as an <a href="https://www.theregister.com/2025/08/12/genai_lawsuit/">individual</a> for copyright infringement.</p>
+<p>As scientists, we know that we should use peer-reviewed resources whenever possible. It is why we cannot cite Wikipedia in a scientific article. GPT’s have been widely shown to <a href="https://medium.com/@nomannayeem/the-fabrication-problem-how-ai-models-generate-fake-citations-urls-and-references-55c052299936">fabricate</a> <a href="https://www.nature.com/articles/s41598-023-41032-5">citations</a> based on how it has learnt a citation should look. It is up to you as a user to check every single citation that AI generates since you are responsible for what you write.</p>
 </section>
 <section id="global-linguistic-changes" class="level3">
 <h3 class="anchored" data-anchor-id="global-linguistic-changes">Global Linguistic Changes</h3>
@@ -429,8 +429,7 @@ Caution
 </div>
 </div>
 </div>
-<p>Can we risk losing our individuality to subtle linguistic shifts?</p>
-<p>We know that subtle linguistic shifts can change <a href="https://journals.sagepub.com/doi/10.1177/0963721419861411">emotional regulation</a> within an individual. We also know that <a href="https://en.wikipedia.org/wiki/Sociolinguistics">sociolinguistics</a>, even the slightest linguistic features, serve to bind or divide us. At the risk of sounding like an alarmist, we must be vigilant.</p>
+<p>We know that subtle linguistic shifts can change <a href="https://journals.sagepub.com/doi/10.1177/0963721419861411">emotional regulation</a> within an individual. We also know that <a href="https://en.wikipedia.org/wiki/Sociolinguistics">sociolinguistics</a>, even the slightest linguistic features, serve to bind or divide us.</p>
 </section>
 <section id="ai-on-the-internet" class="level3">
 <h3 class="anchored" data-anchor-id="ai-on-the-internet">AI on the Internet</h3>
@@ -450,19 +449,19 @@ Caution
 <p>While we cannot do anything about where data centers are built, we can make informed decisions about which platforms (if any), we use. We can also be careful with the number of queries we send, and how we use our queries. In April 2025, the CEO of OpenAI <a href="https://www.vice.com/en/article/telling-chatgpt-please-and-thank-you-costs-openai-millions-ceo-claims/">said</a> that polite requests like “please” and “thank you” have cost tens of millions of dollars due to the cost of electricity.</p>
 </section>
 </section>
-<section id="how-to-make-the-best-of-the-situation" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-make-the-best-of-the-situation">How To Make The Best Of The Situation</h2>
+<section id="how-to-decide-when-to-use-ai" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-decide-when-to-use-ai">How To Decide When To Use AI</h2>
 <p>If we know the risks and the true cost of what we are doing, we can make informed decisions about how we chose to incorporate new technologies into our day-to-day and working lives.</p>
-<p>Here are some questions I ask myself before I even open my GPT of choice</p>
+<p>Here are some questions that we find useful to ask ourselves before opening a GPT:</p>
 <ol type="1">
 <li>Am I phrasing my prompt in a good way? <a href="https://www.pointloma.edu/resources/business-leadership/how-optimize-your-chatgpt-experience-prompt-engineering">Here</a> is a guide to prompt engineering that might be useful</li>
 <li>Can I find this information any other way?</li>
 <li>How much time am I saving by looking this question up here vs on BioStars, for example?</li>
 <li>Do I know enough about the topic to know whether the GPT is lying to me?</li>
-<li>What are the consequences of testing the validity of the GPT solution? Can I potentially corrupt my data or my system? Am I lie to someone who trusts me enough to ask my opinion?</li>
+<li>What are the consequences of testing the validity of the GPT solution? Can I potentially corrupt my data or my system? Is there a potential for me to lie to someone who trusts me enough to ask my opinion?</li>
 </ol>
-<p>If I cannot say with certainty that I will be able to find a hallucination or a lie, I will not put my thoughts to my GPT. If there is even the slightest chance that I am spreading disinformation by repeating information from the GPT, I will not put my thoughts to the GPT.</p>
-<p>If I use a GPT to learn a new skill, or show a student how to do this, I highlight how important active learning is. I suggest that they seek explanations for everything themselves, and doublecheck everything the GPT tells them.</p>
+<p>If a GPT is used to learn a new skill, remember how important active learning is. Seek explanations for everything the GPT tells you. Find independent sources that were produced by experts to validate your learning.</p>
+<p>Hold on to the ability to learn and the desire to be curious.</p>
 
 
 </section>
