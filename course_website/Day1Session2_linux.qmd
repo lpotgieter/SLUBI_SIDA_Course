@@ -128,4 +128,4 @@ If we had a file to look at, we could use the `less` command. In the interface, 
 less filename
 ```
 
-With these Linux basics, you will certainly be able to follow our course. If you would like to learn more, [Data Carpentry](https://datacarpentry.github.io/2015-11-04-ACUNS/shell-intro/) and [Software Carpentry](https://datacarpentry.github.io/2015-11-04-ACUNS/shell-intro/) have excellent tutorials on using the terminal in more detail, and we can only recommend them!
+With these Linux basics, you will certainly be able to follow our course. If you would like to learn more, [Data Carpentry](https://datacarpentry.github.io/2015-11-04-ACUNS/shell-intro/) and [Software Carpentry](https://swcarpentry.github.io/shell-novice/) have excellent tutorials on using the terminal in more detail, and we can only recommend them!
