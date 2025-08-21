@@ -196,13 +196,13 @@ If we use the same definition file as before, but substitute `date` for `fortune
 To show the difference between the `run` and `exec` commands, we can use the same container with `fortune` in the runscript and run:
 
 ```{.bash}
-apptainer run lolcow.sif date|cowsay
+apptainer run lolcow.sif bash -c "date|cowsay"
 ```
 
 and
 
 ```{.bash}
-apptainer exec lolcow.sif date|cowsay
+apptainer exec lolcow.sif bash -c "date|cowsay"
 ```
 
 The `run` command gives us a philosophical cow while `exec` gives us our boring cow again.
