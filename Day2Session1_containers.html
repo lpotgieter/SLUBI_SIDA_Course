@@ -547,9 +547,9 @@ Note
 </figure>
 </div>
 <p>To show the difference between the <code>run</code> and <code>exec</code> commands, we can use the same container with <code>fortune</code> in the runscript and run:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> run lolcow.sif date<span class="kw">|</span><span class="ex">cowsay</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> run lolcow.sif bash <span class="at">-c</span> <span class="st">"date|cowsay"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>and</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec lolcow.sif date<span class="kw">|</span><span class="ex">cowsay</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec lolcow.sif bash <span class="at">-c</span> <span class="st">"date|cowsay"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>run</code> command gives us a philosophical cow while <code>exec</code> gives us our boring cow again.</p>
 
 
