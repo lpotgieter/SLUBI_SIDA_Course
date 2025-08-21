@@ -192,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Day1Session3_pixi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Pixi</span></a>
+ <span class="menu-text">Environment managers: Pixi</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -295,12 +295,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#problems" id="toc-problems" class="nav-link active" data-scroll-target="#problems">Problems</a></li>
+  <li><a href="#reproducibility-in-bioinformatics" id="toc-reproducibility-in-bioinformatics" class="nav-link active" data-scroll-target="#reproducibility-in-bioinformatics">Reproducibility in Bioinformatics</a></li>
   <li><a href="#containers" id="toc-containers" class="nav-link" data-scroll-target="#containers">Containers</a>
   <ul class="collapse">
   <li><a href="#what-are-containers" id="toc-what-are-containers" class="nav-link" data-scroll-target="#what-are-containers">What are containers?</a></li>
   <li><a href="#running-containers" id="toc-running-containers" class="nav-link" data-scroll-target="#running-containers">Running Containers</a></li>
-  <li><a href="#downloading-containers" id="toc-downloading-containers" class="nav-link" data-scroll-target="#downloading-containers">Downloading Containers</a></li>
+  <li><a href="#downloading-container-images" id="toc-downloading-container-images" class="nav-link" data-scroll-target="#downloading-container-images">Downloading Container Images</a></li>
   <li><a href="#running-containers-1" id="toc-running-containers-1" class="nav-link" data-scroll-target="#running-containers-1">Running Containers</a></li>
   <li><a href="#building-containers" id="toc-building-containers" class="nav-link" data-scroll-target="#building-containers">Building Containers</a></li>
   </ul></li>
@@ -329,30 +329,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="problems" class="level2">
-<h2 class="anchored" data-anchor-id="problems">Problems</h2>
-<p>There are several underlying problems within bioinformatics (and informatics in general).</p>
+<section id="reproducibility-in-bioinformatics" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility-in-bioinformatics">Reproducibility in Bioinformatics</h2>
+<p>In an ideal world I would be able to write a piece of software, or a develop some code to analyse data on my computer, and then send someone else this software or code and they could run it as well, getting the same results.</p>
+<p>In reality, I would very likely run into at least one of the following problems:</p>
 <ol type="1">
 <li>It is not uncommon for people within the same team to use different operating systems (whether MacOS, Windows, or different flavours of Unix builds). Even if everyone is using a MacOS, there are still different versions that impact the way people are able to work with their machines.</li>
-<li>Almost every piece of software has some sort of dependency it needs to run. Some programs might “just” need a bash shell or basic python, while others need a variety of compilers and additional libraries to function. Often, these dependencies require further dependencies to be installed. It is also not uncommon for dependencies for Program 1 to clash with the dependencies for Program 2, requiring the user to uninstall dependencies to be able to install other dependencies.</li>
+<li>Almost every piece of software has some sort of dependency - other software - it needs to run. Some programs might “just” need a bash shell or basic python, while others need a variety of compilers and additional libraries to function. Often, these dependencies require further dependencies to be installed. It is also not uncommon for dependencies for Program 1 to clash with the dependencies for Program 2, requiring the user to uninstall dependencies to be able to install others.</li>
 <li>In bioinformatics, tools are very often not maintained after the student that wrote the software graduated, the PI moved to a different university, or the funding simply ran out. This leads to a lot of really good software not really being supported by newer operating systems, usually due to dependencies not being easily available or, as before, clashing with newer versions. This makes installing a tool one of the biggest hurdles to overcome in bioinformatics.</li>
 <li>You often cannot install different versions of the same program on one computer due to conflicting names. This is particularly problematic when you want to rerun an analysis for a publication where you need to use the same software all the way through.</li>
 </ol>
-<p>All of these problems mean that bioinformatics becomes less reproducible as they cannot be moved easily betweem systems (either when you upgrade your computer or want to share your pipeline with a colleague). Most of these problems can be overcome with containers.</p>
+<p>Any of these points might lead to you not being able to run my code, or it running but giving different results. They make bioinformatics less reproducible as tools and code cannot be moved easily betweem systems (for example if you upgrade your computer or want to share your pipeline with a colleague). Fortunately, most of these problems can be overcome with containers.</p>
 </section>
 <section id="containers" class="level2">
 <h2 class="anchored" data-anchor-id="containers">Containers</h2>
 <section id="what-are-containers" class="level3">
 <h3 class="anchored" data-anchor-id="what-are-containers">What are containers?</h3>
-<p>Containers are stand-alone pieces of software that require a container management tool to run. Containers contain an operating system, all dependencies, and software in an isolates environment. Container management tools can be run on all operating systems, and since the container has the operating system within it, it will run the same in all environments. Containers are also immutable, so it is stable over time.</p>
+<p>Containers are stand-alone pieces of software that require a container management tool to run. They are build and exchanged as container images that specify the contents of the container, such as the operating system, all dependencies, and software in an isolated environment. The container management tool then takes the images and build the container. These management tools can be run on all operating systems, and since the container has the operating system within it, it will run the same in all environments. Container images are easily portable and immutable, so they are stable over time.</p>
 </section>
 <section id="running-containers" class="level3">
 <h3 class="anchored" data-anchor-id="running-containers">Running Containers</h3>
-<p>There are several programs that can be used to run containers. <a href="https://www.docker.com">Docker</a>, <a href="https://apptainer.org">Appptainer</a>, and <a href="https://podman.io">Podman</a> are the most commonly used platforms. They all have their pros and cons. If you are using a Windows machine that only you are using, then Docker is likely the least complex tool to install. On multi-user systems like a server, Apptainer is the best tool for the job. For this tutorial and the rest of the course, we will use Apptainer commands. There are small syntax changes between bash and powershell commands, but they are very similar.</p>
+<p>There are several programs that can be used to build and run containers. <a href="https://www.docker.com">Docker</a>, <a href="https://apptainer.org">Appptainer</a>, and <a href="https://podman.io">Podman</a> are the most commonly used platforms to date. They all have their pros and cons. If you are using a Windows machine that only you are using, then Docker is likely the least complex tool to install. On multi-user systems like a server, Apptainer is the best tool for the job. For this tutorial and the rest of the course, we will use Apptainer commands. There are small syntax changes between bash and powershell commands, but they are very similar.</p>
 </section>
-<section id="downloading-containers" class="level3">
-<h3 class="anchored" data-anchor-id="downloading-containers">Downloading Containers</h3>
-<p>There are several repositories for people to upload containers that they have built. <a href="https://hub.docker.com">dockerhub</a> and <a href="https://seqera.io/containers/">Seqera</a> are two commonly used platforms for downloading containers. You are able to run containers from dockerhub on Apptainer without any problems.</p>
+<section id="downloading-container-images" class="level3">
+<h3 class="anchored" data-anchor-id="downloading-container-images">Downloading Container Images</h3>
+<p>There are several repositories for people to publish container images that they have specified. <a href="https://hub.docker.com">Dockerhub</a> and <a href="https://seqera.io/containers/">Seqera</a> are two commonly used platforms for downloading container images. You are able to use container images from dockerhub on Apptainer without any problems.</p>
 <section id="dockerhub-tutorial" class="level4">
 <h4 class="anchored" data-anchor-id="dockerhub-tutorial">dockerhub Tutorial</h4>
 <p>On the dockerhub landing page, you have a search bar, and some login options. You do not need to create an account to access the containers on dockerhub.</p>
@@ -369,22 +370,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Registry search</figcaption>
 </figure>
 </div>
-<p>You can see who built the container, how many times it has been pulled, when it was updated (here updated means different versions of the container being uploaded), and how many people have starred it. It is usually a good rule of thumb to use the most popular containers from users that have uploaded a lot of containers. The <a href="https://hub.docker.com/u/biocontainers">biocontainers</a> and <a href="https://hub.docker.com/u/pegi3s">pegi3s</a> profiles have builds for a lot of tools, and they are built really well!</p>
-<p>If we click on the image from <a href="https://hub.docker.com/r/biocontainers/vcftools">biocontainers</a> we get to a typical dockerhub image landing page:</p>
+<p>You can see who made the container image, how many times it has been downloaded (or pulled), when it was updated (here updated means different versions of the image being uploaded), and how many people have starred it. It is usually a good rule of thumb to use the most popular images from users that have uploaded a lot of container images. The <a href="https://hub.docker.com/u/biocontainers">biocontainers</a> and <a href="https://hub.docker.com/u/pegi3s">pegi3s</a> profiles have builds for a lot of tools, and they are built really well!</p>
+<p>If we click on the vcftools from <a href="https://hub.docker.com/r/biocontainers/vcftools">biocontainers</a> we get to a typical dockerhub image landing page:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/docker3.png" class="img-fluid figure-img"></p>
 <figcaption>VCFtools page</figcaption>
 </figure>
 </div>
-<p>There is information on the frequency of the container being pulled, as well as a pull command. This command is for docker, so we need to modify it for Apptainer.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> pull vcftools_0.1.16-1.sif docker://biocontainers/vcftools</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There is information on the frequency of the container image being pulled, as well as a pull command to download the image. This command is for docker, so we need to modify it for Apptainer.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> pull vcftools_0.1.16-1.sif docker://biocontainers/vcftools:v0.1.16-1-deb_cv1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This command has several parts to it:</p>
 <ol type="1">
 <li><code>apptainer</code> calls on the Apptainer software to run</li>
 <li><code>pull</code> tells Apptainer which function to use. In this case, we want it to go fetch something from a repository</li>
-<li><code>vcftools_0.1.16-1.sif</code> is the name of the container on our local machine. We could call it <code>I_Love_Dogs</code> but that is not very informative at all. Your collaborator won’t know what it means, and you certainly won’t know what it means in 6 months from now! It is also good practice to put the version number in your image name in case you want to have several versions at the same time, and you need to tell them apart.</li>
-<li><code>docker://</code> is the registry you are pulling from. There are several different registreis, but we are only going to show 2 during this course. (You will see another one in the Seqera tutorial)</li>
+<li><code>vcftools_0.1.16-1.sif</code> is the name of the container image on our local machine. We could call it <code>I_Love_Dogs</code> but that is not very informative at all. Your collaborator won’t know what it means, and you certainly won’t know what it means in 6 months from now! It is also good practice to put the version number in your image name in case you want to have several versions at the same time, and you need to tell them apart.</li>
+<li><code>docker://</code> is the registry you are pulling from. There are several different registries, but we are only going to show 2 during this course. (You will see another one in the Seqera tutorial)</li>
 <li><code>biocontainers/vcftools</code> is the profile/repository and container you are pulling</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -415,28 +416,28 @@ Tip
 </section>
 <section id="seqera-tutorial" class="level4">
 <h4 class="anchored" data-anchor-id="seqera-tutorial">Seqera Tutorial</h4>
-<p>The Seqera landing page is a bit different from the dockerhub landing page, and it works a bit differently from dockerhub. dockerhub hosts container images that users have uploaded, while Seqera builds containers as you request them. They use <a href="https://bioconda.github.io">bioconda</a>, <a href="https://conda-forge.org">conda-forge</a>, and <a href="https://pypi.org">pypi</a> libraries to build their containers with <a href="https://github.com/seqeralabs/wave">Wave</a>. The advantage is that you can include several different softwares in your container image at once. The disadvantage is that you are limited to software hosted on the aforementioned repositories. Usually this isn’t a problem, but sometimes you want to use something that isn’t hosted there.</p>
+<p>The Seqera landing page is a bit different from the dockerhub landing page, and it works a bit differently from dockerhub. Dockerhub hosts container images that users have uploaded, while Seqera makes container images as you request them. They use <a href="https://bioconda.github.io">bioconda</a>, <a href="https://conda-forge.org">conda-forge</a>, and <a href="https://pypi.org">pypi</a> libraries to build their containers images with <a href="https://github.com/seqeralabs/wave">Wave</a>. The advantage is that you can include several different softwares in your container image at once. The disadvantage is that you are limited to software hosted on the aforementioned repositories. Usually this isn’t a problem, but sometimes you want to use something that isn’t hosted there.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/seqera1.png" class="img-fluid figure-img"></p>
 <figcaption>Seqera containers landing page</figcaption>
 </figure>
 </div>
-<p>When you pull an image from Seqera and want to run it with Apptainer, you need to remember to change the container setting from Docker to Singularity</p>
+<p>When you pull an image from Seqera and want to run it with Apptainer, you need to remember to change the container setting from Docker to Singularity, the older name of Apptainer.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/seqera2.png" class="img-fluid figure-img"></p>
 <figcaption>Selecting Singularity</figcaption>
 </figure>
 </div>
-<p>Since Seqera builds containers on-demand, sometimes you have to wait for the container to finish compiling. You can see that it is still building the container from the <code>fetching container</code> comment. Don’t try to pull it when it is still building!</p>
+<p>Since Seqera builds containers on-demand, sometimes you have to wait for the container to finish compiling. You can see that it is still preparing the container image from the <code>fetching container</code> comment. Don’t try to pull it when it is still building!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/seqera3.png" class="img-fluid figure-img"></p>
 <figcaption>Waiting to build</figcaption>
 </figure>
 </div>
-<p>When the container is built, you can copy the text and pull the container to your system</p>
+<p>When the container image is ready, you can copy the text and pull the image to your system:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/seqera4.png" class="img-fluid figure-img"></p>
@@ -449,10 +450,10 @@ Tip
 </section>
 <section id="running-containers-1" class="level3">
 <h3 class="anchored" data-anchor-id="running-containers-1">Running Containers</h3>
-<p>Once you have the container on your local machine, you want to be able to use it. Apptainer can be used to enter the container and run as if you had the exact same operating system as the person who built it, or it can run the software inside the container from outside of the container.</p>
+<p>Once you have the container image on your local machine, you want to be able to use it. Apptainer can be used to build the container from the image. Then you can either enter the container and run as if you had the exact same operating system as the person who built it, or you can run the software inside the container from outside of the container.</p>
 <p>There are 2 different ways to use a container: <code>run</code> and <code>exec</code>. The <code>apptainer run</code> command launches the container and first runs the <code>%runscript</code> for the container if one is defined, and then runs your command (we will cover <code>%runscript</code> in the <code>Building Containers</code> section). The <code>apptainer exec</code> command will not run the <code>%runscript</code> even if one is defined. It is a small, fiddly detail that might be applicable if you use other people’s containers. After calling Apptainer and the <code>run</code> or <code>exec</code> commands, you can use your software as you usually would</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec vcftools_0.1.17.sif vcftools <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This command runs your <code>vcftools_0.1.17.sif</code> container, calls on the program <code>vcftools</code> that is within the container, and will show you the version. If you had installed VCFtools locally, you would have just used</p>
+<p>This command runs your <code>vcftools_0.1.17.sif</code> container from the image, calls on the program <code>vcftools</code> that is within the container, and shows you the version. If you had installed VCFtools locally, you would have just used</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">vcftools</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -464,14 +465,14 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please remember that VCFtools is just an example. If you want to run any other tool everything after <code>apptainer run</code> or <code>apptainer exec</code> has to substitute the name of your container and the run commands for that particular tool!</p>
+<p>Please remember that VCFtools is just an example. If you want to run any other tool everything after <code>apptainer run</code> or <code>apptainer exec</code> has to be substituted by the name of the specific container image and the run commands for that particular tool!</p>
 </div>
 </div>
 </section>
 <section id="building-containers" class="level3">
 <h3 class="anchored" data-anchor-id="building-containers">Building Containers</h3>
 <p>If the software you would like to use is not packaged into a container by anyone else, you might want to build it yourself. For this, we are just going to show a very simple example. Building containers from scratch is a computationally intensive task. You build containers from a <code>definition</code> file with the extension <code>.def</code></p>
-<p>Here we are going to build a container with a cow telling us the date. Save this in a file called <code>lolcow.def</code></p>
+<p>Here we are going to build a container with a cow telling us the date. Save this in a file called <code>lolcow.def</code>.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Bootstrap:</span> docker</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">From:</span> ubuntu:20.04</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -487,13 +488,13 @@ Important
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">date</span> <span class="kw">|</span> <span class="ex">cowsay</span> <span class="kw">|</span> <span class="ex">lolcat</span>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>There are several components to this definition file.</p>
 <ol type="1">
-<li>You can set the operating system you want in the container, in this case Ubuntu 20.04</li>
-<li><code>%post</code> section is where you update the OS from its base state, install dependencies and so on</li>
-<li><code>%environment</code> is where you export paths and modify the environment</li>
+<li>You can set the operating system you want in the container, in this case Ubuntu 20.04.</li>
+<li><code>%post</code> section is where you update the OS from its base state, install dependencies and so on.</li>
+<li><code>%environment</code> is where you export paths and modify the environment.</li>
 <li><code>%runscript</code> is the script that will run when you use <code>apptainer run container.sif</code>. If you don’t include a runscript, then nothing will happen when you try to run it without any commands. You could build this container without anything in the <code>%runscript</code> section, and use <code>apptainer run container.sif date | cowsay | lolcat</code> to get the same output.</li>
 </ol>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> build lolcow.sif lolcow.def</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You’ll get a lot of output on the status of the build, ending of</p>
+<p>You’ll get a lot of output on the status of the build, ending in</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">INFO:</span>    Adding environment to container</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">INFO:</span>    Adding runscript</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">INFO:</span>    Creating SIF file...</span>
@@ -516,7 +517,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Try removing the %runscript, build it again, and see what happens</p>
+<p>Try removing the %runscript, build it again, and see what happens.</p>
 </div>
 </div>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Bootstrap:</span> docker</span>
@@ -532,7 +533,7 @@ Note
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="ex">%runscript</span></span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">fortune</span> <span class="kw">|</span> <span class="ex">cowsay</span> <span class="kw">|</span> <span class="ex">lolcat</span>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If we use the same definition file as before, but substitute <code>date</code> for <code>fortune</code> in the runscript and build the container, we now get a philosophical cow with a dark sense of humour</p>
+<p>If we use the same definition file as before, but substitute <code>date</code> for <code>fortune</code> in the runscript and build the container, we now get a philosophical cow with a dark sense of humour:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/lolcow2.png" class="img-fluid figure-img"></p>
@@ -545,11 +546,11 @@ Note
 <figcaption>Inspirational cow</figcaption>
 </figure>
 </div>
-<p>To show the difference between the <code>run</code> and <code>exec</code> commands, we can use the same container with <code>fortune</code> in the runscript and run</p>
+<p>To show the difference between the <code>run</code> and <code>exec</code> commands, we can use the same container with <code>fortune</code> in the runscript and run:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> run lolcow.sif date<span class="kw">|</span><span class="ex">cowsay</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>and</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec lolcow.sif date<span class="kw">|</span><span class="ex">cowsay</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The <code>run</code> command gives us a philosophical cow while <code>exec</code> gives us our boring cow again</p>
+<p>The <code>run</code> command gives us a philosophical cow while <code>exec</code> gives us our boring cow again.</p>
 
 
 </section>
